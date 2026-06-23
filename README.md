@@ -1,2 +1,263 @@
-# SAM3
-Subensemble acceptance method 3.0
+# Subensemble Acceptance Method 3.0
+
+## Description
+
+This repository contains material related to the **Subensemble Acceptance Method 3.0 (SAM-3.0)**.
+
+SAM-3.0 is a procedure to evaluate the effect of exact global conservation laws on cumulants of observables measured in a subsystem or acceptance. The method expresses cumulants in the constrained ensemble in terms of joint unconstrained cumulants of the measured observables and the globally conserved charges.
+
+Compared to earlier versions of SAM, SAM-3.0 works directly with the joint cumulant-generating function of the observables and the total conserved charges. This makes it applicable to arbitrary observables, including non-conserved quantities such as net protons, and to multiple simultaneously conserved charges, such as baryon number, electric charge, strangeness, or total energy.
+
+## Reference
+
+The method is documented in
+
+* R. Poberezhniuk, V. A. Kuznietsov, G. Pihan, V. Vovchenko,
+  *Subensemble Acceptance Method 3.0: General Corrections to Cumulants from Exact Conservation Constraints*,
+  [arXiv:XXXX.XXXXX [hep-ph]](https://arxiv.org/abs/XXXX.XXXXX)
+
+## Method
+
+Let
+
+$$
+\mathbf{X}=(X_1,\ldots,X_d)
+$$
+
+denote the observables of interest, and let
+
+$$
+\mathbf{B}=(B_1,\ldots,B_s)
+$$
+
+denote the globally conserved charges. The input to SAM-3.0 is the set of joint unconstrained, or “grand-canonical,” cumulants
+
+$$
+\kappa^{\rm gce}_{\mathbf{n},\mathbf{m}},
+$$
+
+where the multiindex $\mathbf{n}$ counts derivatives with respect to the observable sources and the multiindex $\mathbf{m}$ counts derivatives with respect to the conserved-charge sources.
+
+The constrained cumulants
+
+$$
+\kappa^{\rm ce}_{\mathbf{n}}
+$$
+
+are obtained by solving the saddle-point equations for auxiliary charge-conjugate fields
+
+$$
+\boldsymbol{\lambda}(\mathbf{t})
+$$
+
+and substituting the solution into the constrained cumulant-generating function. The recursion is algebraic and is implemented using multivariate Faà di Bruno relations, equivalently colored set partitions or multivariate Bell polynomials.
+
+The implementation assumes that the relevant unconstrained distributions are sufficiently sharply peaked for the leading saddle-point approximation to be valid. The input cumulants need not originate from an actual thermal grand-canonical ensemble; the “gce” label denotes the unconstrained reference distribution.
+
+## Material
+
+This repository contains two complementary implementations.
+
+### Wolfram Mathematica notebook
+
+* [**SAM-3.0.nb**](SAM-3.0.nb)
+
+The notebook derives and evaluates SAM-3.0 cumulant formulas symbolically. It supports arbitrary numbers of observables and conserved charges, and computes cumulants recursively to user-specified order.
+
+The notebook contains two independent leading-order implementations:
+
+1. **Colored partitions**
+   Uses the explicit colored set-partition form of the multivariate Faà di Bruno formula. This is the most transparent implementation and follows the analytic derivation closely.
+
+2. **Coefficient matching**
+   Constructs a truncated cumulant-generating function, substitutes a formal power series for the saddle fields (\lambda_a(\mathbf t)), and solves the saddle equations by matching powers of the observable sources. This provides an independent cross-check of the colored-partition recursion.
+
+The colored-partition implementation is the main symbolic implementation.
+
+### C++ implementation
+
+* [**sam3.h**](sam3.h)
+* [**test_sam3.cpp**](test_sam3.cpp)
+
+The C++ code implements the leading-order SAM-3.0 recursion for numerical use. The input is a map of joint unconstrained cumulants,
+
+```cpp
+std::map<std::pair<std::vector<int>, std::vector<int>>, double>
+```
+
+where the first multiindex labels observable orders and the second multiindex labels conserved-charge orders.
+
+The main interface is
+
+```cpp
+CEMap ComputeSAM3CanonicalCumulants(
+    int observableDim,
+    int chargeDim,
+    int desiredOrder,
+    const KappaMap& gceCumulants
+);
+```
+
+The function returns a map
+
+```cpp
+std::map<std::vector<int>, double>
+```
+
+containing all constrained observable cumulants up to the requested total order.
+
+The C++ implementation uses Eigen for inversion of the conserved-charge covariance matrix.
+
+## Input convention
+
+A GCE cumulant is stored as
+
+```cpp
+kappa[{n, m}] = value;
+```
+
+where
+
+```cpp
+n = {n1, ..., nd}
+m = {m1, ..., ms}
+```
+
+correspond to
+
+$$
+\kappa^{\rm gce}_{(n_1,\ldots,n_d),(m_1,\ldots,m_s)}.
+$$
+
+For example, with two observables and three conserved charges,
+
+```cpp
+kappa[{MI{2,1}, MI{1,0,2}}] = value;
+```
+
+represents
+
+$$
+\kappa^{\rm gce}_{(2,1),(1,0,2)}.
+$$
+
+Missing cumulants are interpreted as zero.
+
+## Example
+
+```cpp
+#include "sam3.h"
+
+int main() {
+    KappaMap kappa;
+
+    // Example: one observable X and one conserved charge B.
+    kappa[{MI{2}, MI{0}}] = 10.0; // kappa_X2
+    kappa[{MI{1}, MI{1}}] = 3.0;  // kappa_XB
+    kappa[{MI{0}, MI{2}}] = 5.0;  // kappa_B2
+
+    CEMap ce = ComputeSAM3CanonicalCumulants(
+        1,      // observable dimension
+        1,      // charge dimension
+        4,      // maximum observable cumulant order
+        kappa
+    );
+
+    double C2 = ce[MI{2}];
+
+    return 0;
+}
+```
+
+For Gaussian input, the second constrained cumulant reduces to the Schur-complement form
+
+$$
+\kappa^{\rm ce}_{2}=\kappa^{\rm gce}_{2,0}-\frac{\left(\kappa^{\rm gce}_{1,1}\right)^2}{\kappa^{\rm gce}_{0,2}} .
+$$
+
+## Requirements
+
+
+### Mathematica
+
+The notebook requires Wolfram Mathematica. No external Mathematica packages are required unless stated inside the notebook.
+
+### C++
+
+The C++ implementation requires
+
+* C++17-compatible compiler
+* Eigen
+
+Example compilation command:
+
+```bash
+g++ -std=c++17 -O2 test_sam3.cpp -I. -I/path/to/eigen -o test_sam3
+```
+
+Then run
+
+```bash
+./test_sam3
+```
+
+## Repository structure
+
+A prospective repository layout is
+
+```text
+.
+├── README.md
+├── Mathematica/
+│   └── SAM-3.0.nb
+├── cpp/
+│   ├── sam3.h
+│   └── test_sam3.cpp
+└── LICENSE
+```
+
+## Notes and limitations
+
+The current C++ implementation is intended as a compact reference implementation of the leading-order SAM-3.0 recursion. It assumes that the expansion point is chosen such that the reference mean charges coincide with the fixed charges,
+
+$$
+\langle B_a\rangle_{\rm ref}=B_{0,a}.
+$$
+
+Equivalently, the saddle satisfies
+
+$$
+\boldsymbol\lambda(\mathbf 0)=0.
+$$
+
+If the fixed charges do not coincide with the reference means, the input cumulants should first be evaluated at the appropriate nonzero saddle point or exponential tilt.
+
+The implementation currently focuses on the leading saddle-point contribution. Finite-size corrections, if included, should be documented separately.
+
+## Attribution
+
+Publications using SAM-3.0 or material from this repository should cite the SAM-3.0 paper listed above.
+
+Publications using earlier versions of the method should also cite the corresponding SAM-1.0 and SAM-2.0 papers where appropriate:
+
+* V. Vovchenko, O. Savchuk, R. Poberezhnyuk, M. I. Gorenstein, V. Koch,
+  *Connecting fluctuation measurements in heavy-ion collisions with the grand-canonical susceptibilities*,
+  [Phys. Lett. B 811, 135868 (2020)](https://doi.org/10.1016/j.physletb.2020.135868),
+  [[arXiv:2003.13905 [hep-ph]](https://arxiv.org/abs/2003.13905)]
+
+* V. Vovchenko, R. Poberezhnyuk, V. Koch,
+  *Cumulants of multiple conserved charges and global conservation laws*,
+  [JHEP 10, 089 (2020)](https://doi.org/10.1007/JHEP10%282020%29089),
+  [[arXiv:2007.03850 [hep-ph]](https://arxiv.org/abs/2007.03850)]
+
+* V. Vovchenko, *Correcting event-by-event fluctuations in heavy-ion collisions for exact global conservation laws with the generalized subensemble acceptance method*, [Phys. Rev. C 105, 014903 (2022)](https://doi.org/10.1103/PhysRevC.105.014903) [[arXiv:2106.13775 [hep-ph]](https://arxiv.org/abs/2106.13775)]
+
+
+## License
+
+This repository is distributed under the MIT License. See [LICENSE.md](LICENSE.md) for details.
+
+## Copyright
+
+Copyright (C) 2026
+Roman Poberezhniuk, Volodymyr A. Kuznietsov, Grégoire Pihan, Volodymyr Vovchenko
