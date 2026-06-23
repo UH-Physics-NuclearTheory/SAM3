@@ -10,11 +10,12 @@ Compared to earlier versions of SAM, SAM-3.0 works directly with the joint cumul
 
 ## Reference
 
-The method is documented in
+The primary reference for this repository, which documents the method, is
 
-* R. Poberezhniuk, V. A. Kuznietsov, G. Pihan, V. Vovchenko,
-  *Subensemble Acceptance Method 3.0: General Corrections to Cumulants from Exact Conservation Constraints*,
+- R. Poberezhniuk, V. A. Kuznietsov, G. Pihan, V. Vovchenko,  
+  *Subensemble Acceptance Method 3.0: General Corrections to Cumulants from Exact Conservation Constraints*,  
   [arXiv:XXXX.XXXXX [hep-ph]](https://arxiv.org/abs/XXXX.XXXXX)
+
 
 ## Method
 
@@ -234,24 +235,29 @@ If the fixed charges do not coincide with the reference means, the input cumulan
 
 The implementation currently focuses on the leading saddle-point contribution. Finite-size corrections, if included, should be documented separately.
 
-## Attribution
+## Background and previous versions
 
-Publications using SAM-3.0 or material from this repository should cite the SAM-3.0 paper listed above.
+SAM-3.0 builds on earlier versions of the subensemble acceptance method:
 
-Publications using earlier versions of the method should also cite the corresponding SAM-1.0 and SAM-2.0 papers where appropriate:
-
-* V. Vovchenko, O. Savchuk, R. Poberezhnyuk, M. I. Gorenstein, V. Koch,
-  *Connecting fluctuation measurements in heavy-ion collisions with the grand-canonical susceptibilities*,
-  [Phys. Lett. B 811, 135868 (2020)](https://doi.org/10.1016/j.physletb.2020.135868),
+- V. Vovchenko, O. Savchuk, R. Poberezhnyuk, M. I. Gorenstein, V. Koch,  
+  *Connecting fluctuation measurements in heavy-ion collisions with the grand-canonical susceptibilities*,  
+  [Phys. Lett. B 811, 135868 (2020)](https://doi.org/10.1016/j.physletb.2020.135868),  
   [[arXiv:2003.13905 [hep-ph]](https://arxiv.org/abs/2003.13905)]
 
-* V. Vovchenko, R. Poberezhnyuk, V. Koch,
-  *Cumulants of multiple conserved charges and global conservation laws*,
-  [JHEP 10, 089 (2020)](https://doi.org/10.1007/JHEP10%282020%29089),
+- V. Vovchenko, R. Poberezhnyuk, V. Koch,  
+  *Cumulants of multiple conserved charges and global conservation laws*,  
+  [JHEP 10, 089 (2020)](https://doi.org/10.1007/JHEP10(2020)089),  
   [[arXiv:2007.03850 [hep-ph]](https://arxiv.org/abs/2007.03850)]
 
-* V. Vovchenko, *Correcting event-by-event fluctuations in heavy-ion collisions for exact global conservation laws with the generalized subensemble acceptance method*, [Phys. Rev. C 105, 014903 (2022)](https://doi.org/10.1103/PhysRevC.105.014903) [[arXiv:2106.13775 [hep-ph]](https://arxiv.org/abs/2106.13775)]
+- V. Vovchenko,  
+  *Correcting event-by-event fluctuations in heavy-ion collisions for exact global conservation laws with the generalized subensemble acceptance method*,  
+  [Phys. Rev. C 105, 014903 (2022)](https://doi.org/10.1103/PhysRevC.105.014903),  
+  [[arXiv:2106.13775 [hep-ph]](https://arxiv.org/abs/2106.13775)]
 
+## Attribution
+
+Publications using this repository should cite the SAM-3.0 paper.  
+Publications using results or formulas from earlier versions of the method should also cite the corresponding SAM-1.0 or SAM-2.0 papers listed above.
 
 ## License
 
