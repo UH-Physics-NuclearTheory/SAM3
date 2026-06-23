@@ -259,6 +259,10 @@ SAM-3.0 builds on earlier versions of the subensemble acceptance method:
 Publications using this repository should cite the SAM-3.0 paper.  
 Publications using results or formulas from earlier versions of the method should also cite the corresponding SAM-1.0 or SAM-2.0 papers listed above.
 
+## Authors
+
+See [AUTHORS.md](AUTHORS.md).
+
 ## License
 
 This repository is distributed under the MIT License. See [LICENSE.md](LICENSE.md) for details.
