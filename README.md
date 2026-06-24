@@ -61,7 +61,7 @@ This repository contains two complementary implementations.
 
 ### Wolfram Mathematica notebook
 
-* [**SAM-3.0.nb**](SAM-3.0.nb)
+* [**Mathematica/SAM-3.0.nb**](Mathematica/SAM-3.0.nb)
 
 The notebook derives and evaluates SAM-3.0 cumulant formulas symbolically. It supports arbitrary numbers of observables and conserved charges, and computes cumulants recursively to user-specified order.
 
@@ -77,8 +77,8 @@ The colored-partition implementation is the main symbolic implementation.
 
 ### C++ implementation
 
-* [**sam3.h**](sam3.h)
-* [**test_sam3.cpp**](test_sam3.cpp)
+* [**cpp/sam3.h**](cpp/sam3.h)
+* [**cpp/test_sam3.cpp**](cpp/test_sam3.cpp)
 
 The C++ code implements the leading-order SAM-3.0 recursion for numerical use. The input is a map of joint unconstrained cumulants,
 
@@ -133,7 +133,7 @@ $$
 For example, with two observables and three conserved charges,
 
 ```cpp
-kappa[{MI{2,1}, MI{1,0,2}}] = value;
+kappa[{{2,1}, {1,0,2}}] = value;
 ```
 
 represents
@@ -153,18 +153,19 @@ int main() {
     KappaMap kappa;
 
     // Example: one observable X and one conserved charge B.
-    kappa[{MI{2}, MI{0}}] = 10.0; // kappa_X2
-    kappa[{MI{1}, MI{1}}] = 3.0;  // kappa_XB
-    kappa[{MI{0}, MI{2}}] = 5.0;  // kappa_B2
+    // A key is { observable orders, charge orders }, each a list of integers.
+    kappa[{{2}, {0}}] = 10.0; // kappa_X2
+    kappa[{{1}, {1}}] = 3.0;  // kappa_XB
+    kappa[{{0}, {2}}] = 5.0;  // kappa_B2
 
     CEMap ce = ComputeSAM3CanonicalCumulants(
         1,      // observable dimension
         1,      // charge dimension
-        4,      // maximum observable cumulant order
+        2,      // maximum observable cumulant order
         kappa
     );
 
-    double C2 = ce[MI{2}];
+    double C2 = ce[{2}];
 
     return 0;
 }
@@ -175,6 +176,11 @@ For Gaussian input, the second constrained cumulant reduces to the Schur-complem
 $$
 \kappa^{\rm ce}_{2}=\kappa^{\rm gce}_{2,0}-\frac{\left(\kappa^{\rm gce}_{1,1}\right)^2}{\kappa^{\rm gce}_{0,2}} .
 $$
+
+A runnable version of this example is in [`cpp/example.cpp`](cpp/example.cpp), and
+a worked example — a toy acceptance model with non-trivial cumulants at every
+order — is in [`cpp/example_binomial.cpp`](cpp/example_binomial.cpp). See also
+[`cpp/README.md`](cpp/README.md) for C++ build and usage details.
 
 ## Requirements
 
@@ -188,34 +194,55 @@ The notebook requires Wolfram Mathematica. No external Mathematica packages are 
 The C++ implementation requires
 
 * C++17-compatible compiler
-* Eigen
+* Eigen (the CMake build can fetch this automatically; see below)
 
-Example compilation command:
+It can be built either directly or with CMake.
+
+**Direct compilation** (no build system needed; requires a local Eigen):
 
 ```bash
+cd cpp
 g++ -std=c++17 -O2 test_sam3.cpp -I. -I/path/to/eigen -o test_sam3
-```
-
-Then run
-
-```bash
 ./test_sam3
 ```
 
+**CMake** — resolves Eigen automatically: it uses an installed Eigen if one is
+found (or an explicit `-DEIGEN3_INCLUDE_DIR=/path/to/eigen`), and otherwise
+**downloads Eigen 3.4.0** at configure time, so no Eigen installation is needed:
+
+```bash
+cd cpp
+cmake -B build            # uses a local Eigen if present, otherwise downloads it
+cmake --build build
+ctest --test-dir build    # runs the test suite (test_sam3)
+```
+
+Pass `-DSAM3_FETCH_EIGEN=OFF` to forbid the download and require a local Eigen.
+
 ## Repository structure
 
-A prospective repository layout is
+The repository layout is
 
 ```text
 .
 ├── README.md
+├── AUTHORS.md
+├── LICENSE
 ├── Mathematica/
 │   └── SAM-3.0.nb
-├── cpp/
-│   ├── sam3.h
-│   └── test_sam3.cpp
-└── LICENSE
+└── cpp/
+    ├── CMakeLists.txt
+    ├── README.md
+    ├── sam3.h
+    ├── example.cpp
+    ├── example_binomial.cpp
+    └── test_sam3.cpp
 ```
+
+The repository also includes optional cross-check material (the C++ and
+Mathematica implementations are compared on identical random inputs):
+`cpp/bridge_sam3.cpp`, `Mathematica/test_sam3.wl`, `Mathematica/crosscheck_cpp.wl`,
+and the driver `scripts/crosscheck.sh`.
 
 ## Notes and limitations
 
@@ -265,7 +292,7 @@ See [AUTHORS.md](AUTHORS.md).
 
 ## License
 
-This repository is distributed under the MIT License. See [LICENSE.md](LICENSE.md) for details.
+This repository is distributed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## Copyright
 

@@ -1,0 +1,44 @@
+# --- macOS / OS cruft ---
+.DS_Store
+Thumbs.db
+
+# --- C++ build artifacts ---
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.exe
+*.out
+a.out
+*.dSYM/
+
+# Test / bridge executables built per the README (g++ -o test_sam3 ...)
+test_sam3
+bridge_sam3
+cpp/test_sam3
+cpp/bridge_sam3
+
+# Generic build directories (if a CMake setup is added later)
+build/
+cmake-build-*/
+
+# --- Cross-check generated data ---
+# Mathematica data files emitted by bridge_sam3 (.m). Note: *.m is otherwise a
+# Mathematica package extension, so only the generated bridge files are ignored.
+bridge_sam3.m
+bridge_*.m
+
+# --- Mathematica ---
+# Code export directory produced by the notebook's KappaExport
+generated/
+Mathematica/generated/
+# Autosave / backup
+*.nb~
+*.nb.bak
+
+# --- Editors / IDEs ---
+.vscode/
+.idea/
+*.swp
+*~
