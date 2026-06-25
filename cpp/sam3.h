@@ -50,6 +50,7 @@
 #ifndef SAM3_H
 #define SAM3_H
 
+
 #include <Eigen/Dense>
 
 #include <algorithm>
@@ -60,6 +61,10 @@
 #include <unordered_map>
 #include <utility>
 #include <vector>
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <set>
 
 // ---------------------------------------------------------------------------
 // Input/output types.
@@ -174,6 +179,20 @@ public:
         }
 
         return result;
+    }
+
+    // Tracks missing cumulants during computation
+    mutable std::set<KappaKey> missingKeys_;
+
+    /// Prints all unique missing GCE cumulants that were treated as 0
+    void printMissingCumulants() const {
+        if (missingKeys_.empty()) return;
+
+        std::cout << "\nMissing GCE cumulants (treated as 0):\n";
+        for (const auto& key : missingKeys_) {
+            std::cout << "  \kappa(" << MIToString(key.first) << "; "
+                << MIToString(key.second) << ")\n";
+        }
     }
 
 private:
@@ -381,11 +400,50 @@ private:
         }
     }
 
+    MI decObs(long long code) const {
+        MI n(d_, 0);
+        for (int i = 0; i < d_; ++i) {
+            n[i] = code % B_;
+            code /= B_;
+        }
+        return n;
+    }
+
+    MI decChg(long long code) const {
+        MI m(s_, 0);
+        for (int i = 0; i < s_; ++i) {
+            m[i] = code % B_;
+            code /= B_;
+        }
+        return m;
+    }
+
+    std::string MIToString(const MI& x) const {
+        std::ostringstream ss;
+        ss << "{";
+        for (size_t i = 0; i < x.size(); ++i) {
+            if (i) ss << ",";
+            ss << x[i];
+        }
+        ss << "}";
+        return ss.str();
+    }
+
     // Look up a flattened cumulant directly from pre-computed encodings, so the
     // hot callers never materialize unit / sum / zero charge multi-indices.
-    double getKappaEnc(long long obsEnc, long long chgEnc) const {
+    double getKappaEnc(long long obsEnc, long long chgEnc) const
+    {
         auto it = kappaIdx_.find(obsEnc * powChg_ + chgEnc);
-        if (it == kappaIdx_.end()) return 0.0;
+
+        if (it == kappaIdx_.end()) {
+            MI obs = decObs(obsEnc);
+            MI chg = decChg(chgEnc);
+
+            // Insert into the set to maintain a unique list
+            missingKeys_.insert({ obs, chg });
+            return 0.0;
+        }
+
         return it->second;
     }
 
@@ -641,11 +699,16 @@ private:
 /// \return  canonical cumulants kappa^ce_n keyed by the observable MI n, for
 ///          every n with total order 1 .. Nmax
 inline CEMap ComputeSAM3CanonicalCumulants(int observableDim,
-                                           int chargeDim,
-                                           int desiredOrder,
-                                           const KappaMap& gceCumulants) {
+    int chargeDim,
+    int desiredOrder,
+    const KappaMap& gceCumulants) {
     SAM3Calculator calc(observableDim, chargeDim, desiredOrder, gceCumulants);
-    return calc.compute();
+    CEMap result = calc.compute();
+
+    // Print the unique missing cumulants after processing
+    calc.printMissingCumulants();
+
+    return result;
 }
 
 #endif // SAM3_H
