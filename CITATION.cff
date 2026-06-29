@@ -1,0 +1,54 @@
+cff-version: 1.2.0
+title: SAM-3.0
+message: 'If you use SAM-3.0, please cite the paper below.'
+type: software
+authors:
+  - given-names: Roman
+    family-names: Poberezhniuk
+    affiliation: University of Houston, Bogolyubov Institute for Theoretical Physics
+    # email:
+    # orcid:
+  - given-names: Volodymyr A.
+    family-names: Kuznietsov
+    affiliation: University of Houston, Bogolyubov Institute for Theoretical Physics
+    # email:
+    # orcid:
+  - given-names: Grégoire
+    family-names: Pihan
+    affiliation: University of Houston
+    # email:
+    # orcid:
+  - given-names: Volodymyr
+    family-names: Vovchenko
+    email: vvovchen@central.uh.edu
+    affiliation: University of Houston
+    orcid: 'https://orcid.org/0000-0002-2189-4766'
+identifiers:
+  - type: doi
+    value: 10.XXXX/XXXXX   # TODO: paper DOI once published
+    description: The paper documenting the method
+repository-code: 'https://github.com/UH-Physics-NuclearTheory/SAM3'
+abstract: A package for correcting cumulants of observables for exact global conservation laws (subensemble acceptance method)
+keywords:
+  - fluctuations
+  - conserved-charges
+  - conservation-laws
+  - heavy-ion-collisions
+  - cumulants
+license: MIT
+version: 1.0.0          # TODO: tagged release used for the paper
+date-released: '2026-XX-XX'   # TODO
+preferred-citation:
+  type: article
+  title: "Subensemble Acceptance Method 3.0: General Corrections to Cumulants from Exact Conservation Constraints"
+  authors:
+    - family-names: Poberezhniuk
+      given-names: Roman
+    - family-names: Kuznietsov
+      given-names: Volodymyr A.
+    - family-names: Pihan
+      given-names: Grégoire
+    - family-names: Vovchenko
+      given-names: Volodymyr
+  year: 2026
+  # journal / volume / doi / start / end  — TODO once published
