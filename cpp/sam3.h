@@ -190,7 +190,7 @@ public:
 
         std::cout << "\nMissing GCE cumulants (treated as 0):\n";
         for (const auto& key : missingKeys_) {
-            std::cout << "  \kappa(" << MIToString(key.first) << "; "
+            std::cout << "  kappa(" << MIToString(key.first) << "; "
                 << MIToString(key.second) << ")\n";
         }
     }
