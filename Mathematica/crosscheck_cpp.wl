@@ -10,8 +10,10 @@
    Exits with code 1 if any cumulant disagrees.
    =================================================================== *)
 
-scriptDir = If[$InputFileName =!= "" && $InputFileName =!= Null,
-               DirectoryName[$InputFileName], Directory[]];
+scriptDir = Which[
+  $InputFileName =!= "" && $InputFileName =!= Null,        DirectoryName[$InputFileName],
+  TrueQ[$Notebooks] && Quiet[NotebookDirectory[]] =!= $Failed, NotebookDirectory[],
+  True,                                                    Directory[]];
 nbPath = FileNameJoin[{scriptDir, "SAM-3.0.nb"}];
 bridgeFiles = Rest[$ScriptCommandLine];
 If[bridgeFiles === {}, Print["usage: ... <bridge.m> [bridge.m ...]"]; Exit[2]];

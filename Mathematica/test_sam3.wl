@@ -12,8 +12,10 @@
    Exits with code 1 if any check fails.
    =================================================================== *)
 
-scriptDir = If[$InputFileName =!= "" && $InputFileName =!= Null,
-               DirectoryName[$InputFileName], Directory[]];
+scriptDir = Which[
+  $InputFileName =!= "" && $InputFileName =!= Null,        DirectoryName[$InputFileName],
+  TrueQ[$Notebooks] && Quiet[NotebookDirectory[]] =!= $Failed, NotebookDirectory[],
+  True,                                                    Directory[]];
 nbPath = FileNameJoin[{scriptDir, "SAM-3.0.nb"}];
 If[! FileExistsQ[nbPath], Print["cannot find ", nbPath]; Exit[2]];
 
