@@ -3,17 +3,17 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 13.1' *)
+(* CreatedBy='Mathematica 14.0' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    201235,       4965]
-NotebookOptionsPosition[    188061,       4762]
-NotebookOutlinePosition[    190342,       4816]
-CellTagsIndexPosition[    190299,       4813]
+NotebookDataLength[    282261,       7161]
+NotebookOptionsPosition[    265028,       6865]
+NotebookOutlinePosition[    267314,       6919]
+CellTagsIndexPosition[    267271,       6916]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -76,8 +76,7 @@ conserved charges. The substitutable symbol behind every ",
   FormBox[
    SubsuperscriptBox["\[Kappa]", 
     RowBox[{"nX", " ", "nY"}], 
-    RowBox[{"XY", "|", "BQ"}]], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+    RowBox[{"XY", "|", "BQ"}]], TraditionalForm]],ExpressionUUID->
   "cc76a20d-5d01-4a8c-8415-a0b5e2b0de69"],
  ", i.e. of the observables at fixed total B, Q.\n",
  StyleBox["kB[n]", "Code"],
@@ -113,7 +112,7 @@ Cell[BoxData[
     RowBox[{"--", " ", "multiindex"}]}], " ", 
    RowBox[{
     RowBox[{"helpers", " ", "--"}], "--"}]}], " ", "*)"}]], "Code",
- CellLabel->"In[1]:=",ExpressionUUID->"50464032-74c8-4ff3-86b1-61f238d77392"],
+ CellLabel->"In[72]:=",ExpressionUUID->"50464032-74c8-4ff3-86b1-61f238d77392"],
 
 Cell[BoxData[{
  RowBox[{
@@ -435,7 +434,7 @@ Cell[BoxData[{
         RowBox[{"{", 
          RowBox[{"i", ",", " ", "1", ",", " ", "dd"}], "}"}]}], "]"}]}]}], 
     "\n", "]"}]}], ";"}]}], "Code",
- CellLabel->"In[2]:=",ExpressionUUID->"c6aaebe7-6d0d-4b81-a80b-87c6cbdb09e8"]
+ CellLabel->"In[73]:=",ExpressionUUID->"c6aaebe7-6d0d-4b81-a80b-87c6cbdb09e8"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -647,7 +646,7 @@ Cell[BoxData[
            RowBox[{"z", ",", " ", "1", ",", " ", 
             RowBox[{"Length", "[", "pList", "]"}]}], "}"}]}], "]"}], ";", 
         "\n", "  ", "sum"}]}], "]"}]}], ";"}]}]}]], "Code",
- CellLabel->"In[15]:=",ExpressionUUID->"ffbdaddd-fa50-463c-b51f-197881997e04"],
+ CellLabel->"In[86]:=",ExpressionUUID->"ffbdaddd-fa50-463c-b51f-197881997e04"],
 
 Cell[BoxData[
  RowBox[{
@@ -693,7 +692,7 @@ Cell[BoxData[
        RowBox[{"ss", ",", " ", "a"}], "]"}], ",", " ", 
       RowBox[{"\"\<IncludeLeading\>\"", " ", "->", " ", "False"}]}], "]"}]}], 
    ";"}]}]], "Code",
- CellLabel->"In[17]:=",ExpressionUUID->"145a7f99-3529-4d01-acbb-714c242cefcd"],
+ CellLabel->"In[88]:=",ExpressionUUID->"145a7f99-3529-4d01-acbb-714c242cefcd"],
 
 Cell[BoxData[
  RowBox[{
@@ -704,7 +703,7 @@ Cell[BoxData[
       RowBox[{"--", 
        RowBox[{"--", " ", 
         RowBox[{"KappaSaddlePoint", "[", 
-         RowBox[{"maxOrder", ",", " ", "d", ",", " ", "s"}], "]"}]}]}], " ", 
+         RowBox[{"maxDeg", ",", " ", "d", ",", " ", "s"}], "]"}]}]}], " ", 
       RowBox[{
        RowBox[{
         RowBox[{"(", 
@@ -717,15 +716,15 @@ Cell[BoxData[
     RowBox[{"incremental", " ", "and", " ", 
      RowBox[{"memoized", ":", " ", 
       RowBox[{
-      "a", " ", "call", " ", "at", "\n", "   ", "maxOrder", " ", "fetches", 
-       " ", "the", " ", "state", " ", "from", " ", 
+      "a", " ", "call", " ", "at", "\n", "   ", "maxDeg", " ", "fetches", " ",
+        "the", " ", "state", " ", "from", " ", 
        RowBox[{"KappaSaddlePoint", "[", 
         RowBox[{
-         RowBox[{"maxOrder", "-", "1"}], ",", " ", "d", ",", " ", "s"}], 
-        "]"}], " ", "and", " ", "computes", "\n", "   ", "only", " ", "the", 
-       " ", "multiindices", " ", "of", " ", "total", " ", "degree", " ", 
-       RowBox[{"maxOrder", ".", " ", "Returns"}], " ", "an", " ", "opaque", 
-       " ", "object", "\n", "   ", 
+         RowBox[{"maxDeg", "-", "1"}], ",", " ", "d", ",", " ", "s"}], "]"}], 
+       " ", "and", " ", "computes", "\n", "   ", "only", " ", "the", " ", 
+       "multiindices", " ", "of", " ", "total", " ", "degree", " ", 
+       RowBox[{"maxDeg", ".", " ", "Returns"}], " ", "an", " ", "opaque", " ",
+        "object", "\n", "   ", 
        RowBox[{"<|", 
         RowBox[{
         "\"\<lambdaAssoc\>\"", ",", " ", "\"\<Kmat\>\"", ",", " ", 
@@ -795,6 +794,7 @@ Cell[BoxData[
             "    ", 
             RowBox[{"Kmat", " ", "=", " ", 
              RowBox[{"prev", "[", "\"\<Kmat\>\"", "]"}]}], ";", "\n", "    ", 
+            
             RowBox[{"Kinv", " ", "=", " ", 
              RowBox[{"prev", "[", "\"\<Kinv\>\"", "]"}]}]}]}], "\n", "    ", 
           "]"}], ";", "\n", "   ", 
@@ -805,6 +805,7 @@ Cell[BoxData[
             RowBox[{"nList", " ", "=", " ", 
              RowBox[{"WeakMultiIndicesTotalDegree", "[", 
               RowBox[{"maxDeg", ",", " ", "dd"}], "]"}]}], ";", "\n", "    ", 
+            
             RowBox[{"Do", "[", "\n", "     ", 
              RowBox[{
               RowBox[{
@@ -865,7 +866,7 @@ Cell[BoxData[
            RowBox[{"\"\<Dim\>\"", " ", "->", " ", "dd"}], ",", " ", 
            RowBox[{"\"\<Charges\>\"", " ", "->", " ", "ss"}]}], "|>"}]}]}], 
        "\n", "   ", "]"}]}]}], ";"}], "\n"}]}]], "Code",
- CellLabel->"In[18]:=",ExpressionUUID->"67d2b89f-f977-46e2-ba83-4e12c9e0fe97"]
+ CellLabel->"In[89]:=",ExpressionUUID->"67d2b89f-f977-46e2-ba83-4e12c9e0fe97"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -1309,7 +1310,7 @@ Cell[BoxData[
          RowBox[{
           RowBox[{"MIFact", "[", "n", "]"}], " ", "*", " ", "coeffSym"}], " ",
           "//", " ", "Simplify"}]}]}], "\n", "]"}]}], ";"}]}]}]], "Code",
- CellLabel->"In[19]:=",ExpressionUUID->"25d9de1b-1939-44cd-8e1e-23bbd9664a2c"]
+ CellLabel->"In[90]:=",ExpressionUUID->"25d9de1b-1939-44cd-8e1e-23bbd9664a2c"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -1394,6 +1395,7 @@ Cell[BoxData[
            RowBox[{
             RowBox[{"kGCE", "[", 
              RowBox[{"ni_List", ",", " ", "mi_List"}], "]"}], " ", ":>", " ", 
+            
             RowBox[{
              RowBox[{"Total", "[", "ni", "]"}], " ", "+", " ", 
              RowBox[{"Total", "[", "mi", "]"}]}]}], ",", " ", 
@@ -1408,7 +1410,7 @@ Cell[BoxData[
            RowBox[{"{", 
             RowBox[{"0", ",", " ", "Infinity"}], "}"}]}], "]"}], "]"}]}]}]}], 
      "\n", "]"}]}], ";"}]}]], "Code",
- CellLabel->"In[26]:=",ExpressionUUID->"f35b814a-48b0-4d52-8815-57d901bf433e"],
+ CellLabel->"In[97]:=",ExpressionUUID->"f35b814a-48b0-4d52-8815-57d901bf433e"],
 
 Cell[BoxData[
  RowBox[{
@@ -1717,7 +1719,7 @@ Cell[BoxData[
            RowBox[{"ne", "[", "num", "]"}], " ", "<>", " ", 
            "\"\< \\\\right)\>\""}]}], "]"}]}]}], "\n", " ", "]"}]}], 
     ";"}]}]}]], "Code",
- CellLabel->"In[27]:=",ExpressionUUID->"7f20253c-309b-4da0-a25d-09afd0eec5da"]
+ CellLabel->"In[98]:=",ExpressionUUID->"7f20253c-309b-4da0-a25d-09afd0eec5da"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -1852,7 +1854,8 @@ Cell[BoxData[
       RowBox[{"n", ",", "lambdaAssoc", ",", 
        RowBox[{"Length", "[", "n", "]"}], ",", "ss", ",", 
        RowBox[{"ZeroMI", "[", "ss", "]"}]}], "]"}]}], ";"}]}]}]], "Code",
- CellLabel->"In[29]:=",ExpressionUUID->"a5f28774-db04-4283-98d2-77bb653e8fff"]
+ CellLabel->
+  "In[100]:=",ExpressionUUID->"a5f28774-db04-4283-98d2-77bb653e8fff"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -2003,7 +2006,8 @@ Cell[BoxData[
        RowBox[{"n_List", ",", "m_List"}], "]"}], ":>", 
       RowBox[{"kappaBinRule", "[", 
        RowBox[{"n", ",", "m"}], "]"}]}]}], ";"}]}]}]], "Code",
- CellLabel->"In[33]:=",ExpressionUUID->"7b615438-18ad-4380-8ee9-dbc8dde6f223"]
+ CellLabel->
+  "In[104]:=",ExpressionUUID->"7b615438-18ad-4380-8ee9-dbc8dde6f223"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -2222,6 +2226,7 @@ Cell[BoxData[
               ",", " ", 
               RowBox[{"{", 
                RowBox[{"a", ",", " ", "1", ",", " ", "ss"}], "}"}], ",", " ", 
+              
               RowBox[{"{", 
                RowBox[{"b", ",", " ", "1", ",", " ", "ss"}], "}"}]}], "]"}]}],
             ",", "\n", "    ", 
@@ -2412,6 +2417,7 @@ Cell[BoxData[
          RowBox[{"NN", " ", "=", " ", 
           RowBox[{"Total", "[", "nMI", "]"}]}], ",", " ", "result", ",", " ", 
          "parts", ",", " ", "prod", ",", " ", "d0"}], "}"}], ",", "\n", "  ", 
+       
        RowBox[{
         RowBox[{"d0", " ", "=", " ", 
          RowBox[{"deltaAssoc", "[", 
@@ -2486,7 +2492,8 @@ Cell[BoxData[
        RowBox[{"CanonicalFromSaddleNLO", "[", 
         RowBox[{"la", ",", "n", ",", "s"}], "]"}]}]}], ":", " ", 
      RowBox[{"two", "-", 
-      RowBox[{"step", " ", "extractor", " ", "from", " ", "precomputed", " ", 
+      RowBox[{
+      "step", " ", "extractor", " ", "from", " ", "precomputed", " ", 
        RowBox[{"lambdaAssoc", ".", "\n", "   ", 
         RowBox[{"DeltaSeries", "[", 
          RowBox[{"la", ",", "n", ",", "s"}], "]"}]}]}]}], ":", " ", 
@@ -2553,7 +2560,8 @@ Cell[BoxData[
        RowBox[{"HessianMatrixSeries", "[", 
         RowBox[{"lambdaAssoc", ",", " ", "nMax", ",", " ", "ss"}], "]"}], ",",
         " ", "nMax", ",", " ", "ss"}], "]"}]}], ";"}]}]}]], "Code",
- CellLabel->"In[36]:=",ExpressionUUID->"3a5f1383-d203-49d9-bf80-41c1ac91ce6f"]
+ CellLabel->
+  "In[107]:=",ExpressionUUID->"3a5f1383-d203-49d9-bf80-41c1ac91ce6f"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -2687,7 +2695,8 @@ Cell[BoxData[
             RowBox[{"orders", " ", "=", " ", "integers"}]}], ")"}], "\n", 
           "   ", 
           RowBox[{"KappaCE", "[", 
-           RowBox[{"orders", ",", " ", "charges", ",", " ", "opts"}], "]"}], "              ", 
+           RowBox[{"orders", ",", " ", "charges", ",", " ", "opts"}], "]"}], 
+          "              ", 
           RowBox[{"(", 
            RowBox[{
             RowBox[{
@@ -2956,6 +2965,7 @@ opts].\>\""}], ";"}], "\n", "\n",
          RowBox[{"Switch", "[", 
           RowBox[{
           "method", ",", "\n", "    ", "\"\<ColoredPartitions\>\"", ",", " ", 
+           
            RowBox[{"If", "[", 
             RowBox[{
              RowBox[{"TrueQ", "[", "nlo", "]"}], ",", " ", 
@@ -3081,7 +3091,8 @@ opts].\>\""}], ";"}], "\n", "\n",
              RowBox[{"KappaCE", "::", "badform"}], ",", " ", "form"}], "]"}], 
            ";", " ", "$Failed"}]}], "]"}]}]}], "\n", " ", "]"}]}], 
     ";"}]}]}]], "Code",
- CellLabel->"In[44]:=",ExpressionUUID->"57865269-7e8d-4021-a6dc-3e05483cac9f"]
+ CellLabel->
+  "In[115]:=",ExpressionUUID->"57865269-7e8d-4021-a6dc-3e05483cac9f"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -3189,9 +3200,7 @@ Cell[BoxData[
   RowBox[{"(*", " ", 
    RowBox[{
     RowBox[{
-     RowBox[{"labeled", " ", "flat", " ", "name", " ", 
-      RowBox[{"(", 
-       RowBox[{"scheme", " ", "1", "b"}], ")"}]}], ":", " ", 
+     RowBox[{"labeled", " ", "flat", " ", "name"}], ":", " ", 
      RowBox[{
       RowBox[{
        RowBox[{
@@ -3369,6 +3378,7 @@ Cell[BoxData[
             RowBox[{"Power", "[", 
              RowBox[{"_", ",", " ", "e_Integer"}], "]"}], " ", "/;", " ", 
             RowBox[{"e", " ", "<", " ", "0"}]}]}], "]"}]}], ";", "\n", "   ", 
+        
         RowBox[{"numStr", " ", "=", " ", 
          RowBox[{"If", "[", 
           RowBox[{
@@ -3493,6 +3503,7 @@ Cell[BoxData[
         RowBox[{"If", "[", 
          RowBox[{
           RowBox[{"lang", " ", "===", " ", "Automatic"}], ",", "\n", "     ", 
+          
           RowBox[{"lang", " ", "=", " ", 
            RowBox[{"Which", "[", 
             RowBox[{
@@ -3872,7 +3883,8 @@ e){ double r = 1.0; int i; for (i = 0; i < e; i++) r *= b; return r; \
 .py/.c file extension).\>\""}], ";"}]}]}]], "Code",
  CellChangeTimes->{{3.991182993489093*^9, 3.991182994479698*^9}, {
   3.9911864831970673`*^9, 3.991186483709643*^9}},
- CellLabel->"In[56]:=",ExpressionUUID->"d22d8b6e-d790-44da-8f1e-2dc39a6018d2"],
+ CellLabel->
+  "In[127]:=",ExpressionUUID->"d22d8b6e-d790-44da-8f1e-2dc39a6018d2"],
 
 Cell[BoxData[{
  RowBox[{
@@ -3883,22 +3895,16 @@ Cell[BoxData[{
       RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<generated\>\""}], 
      "}"}], "]"}]}], ";"}], "\n", 
  RowBox[{
-  RowBox[{
-   RowBox[{"If", "[", 
-    RowBox[{
-     RowBox[{"!", 
-      RowBox[{"DirectoryQ", "[", "exportDir", "]"}]}], ",", 
-     RowBox[{"CreateDirectory", "[", "exportDir", "]"}]}], "]"}], ";"}], 
-  "\n"}], "\[IndentingNewLine]", 
- RowBox[{"Export", "[", 
-  RowBox[{
-   RowBox[{"FileNameJoin", "[", 
-    RowBox[{"{", 
-     RowBox[{"exportDir", ",", "\"\<kappa2_BQ.py\>\""}], "}"}], "]"}], ",", 
-   "pyCode", ",", "\"\<Text\>\""}], "]"}]}], "Input",
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"!", 
+     RowBox[{"DirectoryQ", "[", "exportDir", "]"}]}], ",", 
+    RowBox[{"CreateDirectory", "[", "exportDir", "]"}]}], "]"}], 
+  ";"}], "\n"}], "Input",
  CellChangeTimes->{{3.991186484903399*^9, 3.991186484908886*^9}},
- CellLabel->"In[70]:=",ExpressionUUID->"41e5b393-4d2c-4996-98b3-751dbdb7ab05"]
-}, Open  ]]
+ CellLabel->
+  "In[141]:=",ExpressionUUID->"41e5b393-4d2c-4996-98b3-751dbdb7ab05"]
+}, Closed]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3932,6 +3938,8 @@ Cell[TextData[{
  ". See Sec. 1.8 for the full option list."
 }], "Text",ExpressionUUID->"dde30b82-0cfa-46ac-bf9a-bbf78d6032e0"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"KappaCE", "[", 
@@ -3942,12 +3950,35 @@ Cell[BoxData[
      RowBox[{"X", "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"all", " ", "defaults"}]}], " ", "*)"}]}]], "Input",
  CellLabel->
-  "In[519]:=",ExpressionUUID->"486fa9fe-80b6-47cf-b385-e67530efed59"],
+  "In[143]:=",ExpressionUUID->"486fa9fe-80b6-47cf-b385-e67530efed59"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   TemplateBox[{"\[Kappa]", "\"2\"", 
+     StyleBox["\"X\"", Italic, StripOnInput -> False]},
+    "Subsuperscript"], "-", 
+   FractionBox[
+    SuperscriptBox[
+     RowBox[{"(", 
+      TemplateBox[{"\[Kappa]", "\"11\"", 
+        StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+       "Subsuperscript"], ")"}], "2"], 
+    TemplateBox[{"\[Kappa]", "\"2\"", 
+      StyleBox["\"B\"", Italic, StripOnInput -> False]},
+     "Subsuperscript"]]}],
+  HoldForm]], "Output",
+ CellChangeTimes->{3.991828611332817*^9},
+ CellLabel->
+  "Out[143]=",ExpressionUUID->"ddff6096-61f4-4214-9347-2249958a9300"]
+}, Open  ]],
 
 Cell["\<\
 Pass observable labels, per-observable orders, and conserved charges \
 explicitly for the general multi-observable, multi-charge case:\
 \>", "Text",ExpressionUUID->"ebe8557b-b04f-49b9-b2a4-52c27dd0dbf4"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -3968,7 +3999,82 @@ Cell[BoxData[
      "cumulant", " ", "of", " ", "two", " ", "observables", " ", "with", " ", 
       "two", " ", "conserved", " ", "charges"}]}]}], " ", "*)"}]}]], "Input",
  CellLabel->
-  "In[520]:=",ExpressionUUID->"65934f5e-ca9d-44de-909a-26d2371318fa"],
+  "In[144]:=",ExpressionUUID->"65934f5e-ca9d-44de-909a-26d2371318fa"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   TemplateBox[{"\[Kappa]", "\"11\"", 
+     StyleBox["\"XY\"", Italic, StripOnInput -> False]},
+    "Subsuperscript"], "+", 
+   FractionBox[
+    TagBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"YQ\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "-", 
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"YB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"YB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "-", 
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"YQ\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}]}],
+     HoldForm], 
+    TagBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], ")"}], "2"], "-", 
+      RowBox[{
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"B\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}]}],
+     HoldForm]]}],
+  HoldForm]], "Output",
+ CellChangeTimes->{3.991828613732285*^9},
+ CellLabel->
+  "Out[144]=",ExpressionUUID->"a900108e-adfb-49fe-bad6-0ff315aaa881"]
+}, Open  ]],
 
 Cell[TextData[{
  StyleBox["\"Form\"", "Code"],
@@ -3981,6 +4087,8 @@ Cell[TextData[{
  " string."
 }], "Text",ExpressionUUID->"d2da3768-6f44-4c5b-93d0-538792eb3e1b"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"KappaCE", "[", 
@@ -3989,11 +4097,26 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"\"\<B\>\"", ",", " ", "\"\<Q\>\""}], "}"}], ",", " ", 
     RowBox[{"\"\<Form\>\"", " ", "->", " ", "\"\<TeX\>\""}]}], "]"}], "    ", 
+  
   RowBox[{"(*", " ", 
    RowBox[{"paper", "-", 
     RowBox[{"style", " ", "TeX", " ", "string"}]}], " ", "*)"}]}]], "Input",
  CellLabel->
-  "In[521]:=",ExpressionUUID->"781daaa5-e9a9-436b-aff5-1d0ddccf43b2"],
+  "In[145]:=",ExpressionUUID->"781daaa5-e9a9-436b-aff5-1d0ddccf43b2"],
+
+Cell[BoxData["\<\"\\\\kappa_2^{\\\\text{X}}+\\\\frac{\\\\left(\\\\kappa_{11}^{\
+\\\\text{XQ}}\\\\right)^2 \\\\kappa_2^{\\\\text{B}}+\\\\left(\\\\kappa_{11}^{\
+\\\\text{XB}}\\\\right)^2 \\\\kappa_2^{\\\\text{Q}}-2 \
+\\\\kappa_{11}^{\\\\text{BQ}} \\\\kappa_{11}^{\\\\text{XB}} \
+\\\\kappa_{11}^{\\\\text{XQ}}}{\\\\left(\\\\kappa_{11}^{\\\\text{BQ}}\\\\\
+right)^2-\\\\kappa_2^{\\\\text{B}} \\\\kappa_2^{\\\\text{Q}}}\"\>"], "Output",\
+
+ CellChangeTimes->{3.99182861621526*^9},
+ CellLabel->
+  "Out[145]=",ExpressionUUID->"5147fa2d-a89f-4f2c-bd5f-31237e8fced0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4006,7 +4129,29 @@ Cell[BoxData[
    RowBox[{"\"\<Raw\>\"", " ", "is", " ", "substitutable"}], " ", 
    "*)"}]}]], "Input",
  CellLabel->
-  "In[522]:=",ExpressionUUID->"1d01b6a6-a546-464f-a607-ed6fb1046311"],
+  "In[146]:=",ExpressionUUID->"1d01b6a6-a546-464f-a607-ed6fb1046311"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox[
+    SuperscriptBox[
+     RowBox[{"kGCE", "[", 
+      RowBox[{
+       RowBox[{"{", "1", "}"}], ",", 
+       RowBox[{"{", "1", "}"}]}], "]"}], "2"], 
+    RowBox[{"kGCE", "[", 
+     RowBox[{
+      RowBox[{"{", "0", "}"}], ",", 
+      RowBox[{"{", "2", "}"}]}], "]"}]]}], "+", 
+  RowBox[{"kGCE", "[", 
+   RowBox[{
+    RowBox[{"{", "2", "}"}], ",", 
+    RowBox[{"{", "0", "}"}]}], "]"}]}]], "Output",
+ CellChangeTimes->{3.991828620341597*^9},
+ CellLabel->
+  "Out[146]=",ExpressionUUID->"c794250b-8394-4887-84a9-c9c3eb9ed327"]
+}, Open  ]],
 
 Cell[TextData[{
  "Specialize to a model by defining rules for the joint GCE cumulants. Toy \
@@ -4014,6 +4159,8 @@ example \[LongDash] substitute ",
  StyleBox["kGCE[{n}, {m}] -> n a + m b", "Code"],
  ":"
 }], "Text",ExpressionUUID->"7bbd5163-1141-4795-8a4f-6f1ee999dd81"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -4034,8 +4181,20 @@ Cell[BoxData[{
      RowBox[{"\"\<Form\>\"", " ", "->", " ", "\"\<Raw\>\""}]}], "]"}], " ", "/.",
     " ", "toyRules"}], " ", "//", " ", "FullSimplify"}]}], "Input",
  CellLabel->
-  "In[523]:=",ExpressionUUID->"5aeacd44-fe58-4fcd-853e-4ce19261a21e"]
-}, Closed]],
+  "In[147]:=",ExpressionUUID->"5aeacd44-fe58-4fcd-853e-4ce19261a21e"],
+
+Cell[BoxData[
+ RowBox[{"-", 
+  FractionBox[
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"a", "-", "b"}], ")"}], "2"], 
+   RowBox[{"2", " ", "b"}]]}]], "Output",
+ CellChangeTimes->{3.991828626394413*^9},
+ CellLabel->
+  "Out[148]=",ExpressionUUID->"2808c342-2ead-4261-beee-3c4bd8930bee"]
+}, Open  ]]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -4045,6 +4204,8 @@ Cell["\<\
 Diagonal canonical cumulants of orders 1\[Dash]4 for one observable and one \
 conserved charge:\
 \>", "Text",ExpressionUUID->"4c43fcbf-9eef-47ba-b31d-452e05013a17"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4056,7 +4217,19 @@ Cell[BoxData[
      RowBox[{"X", "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"paper", " ", 
      RowBox[{"Eq", ".", " ", "31"}]}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[77]:=",ExpressionUUID->"543f5b46-b47f-42f5-9579-1e74ae2e5f8d"],
+ CellLabel->
+  "In[149]:=",ExpressionUUID->"543f5b46-b47f-42f5-9579-1e74ae2e5f8d"],
+
+Cell[BoxData[
+ TemplateBox[{"\[Kappa]", "\"1\"", 
+   StyleBox["\"X\"", Italic, StripOnInput -> False]},
+  "Subsuperscript"]], "Output",
+ CellChangeTimes->{3.99182863766441*^9},
+ CellLabel->
+  "Out[149]=",ExpressionUUID->"dc9efaed-af78-4bd7-b3fb-73a675853f1a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4068,7 +4241,31 @@ Cell[BoxData[
      RowBox[{"X", "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"paper", " ", 
      RowBox[{"Eq", ".", " ", "32"}]}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[78]:=",ExpressionUUID->"3722a07f-942d-4025-a48e-565e045a87f1"],
+ CellLabel->
+  "In[150]:=",ExpressionUUID->"3722a07f-942d-4025-a48e-565e045a87f1"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   TemplateBox[{"\[Kappa]", "\"2\"", 
+     StyleBox["\"X\"", Italic, StripOnInput -> False]},
+    "Subsuperscript"], "-", 
+   FractionBox[
+    SuperscriptBox[
+     RowBox[{"(", 
+      TemplateBox[{"\[Kappa]", "\"11\"", 
+        StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+       "Subsuperscript"], ")"}], "2"], 
+    TemplateBox[{"\[Kappa]", "\"2\"", 
+      StyleBox["\"B\"", Italic, StripOnInput -> False]},
+     "Subsuperscript"]]}],
+  HoldForm]], "Output",
+ CellChangeTimes->{3.991828637789*^9},
+ CellLabel->
+  "Out[150]=",ExpressionUUID->"db4ab281-e322-4e58-bf1f-fb9029e9bebd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4080,7 +4277,67 @@ Cell[BoxData[
      RowBox[{"X", "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"paper", " ", 
      RowBox[{"Eq", ".", " ", "33"}]}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[79]:=",ExpressionUUID->"63c3900c-f25c-4bd6-9a41-d101dda55381"],
+ CellLabel->
+  "In[151]:=",ExpressionUUID->"63c3900c-f25c-4bd6-9a41-d101dda55381"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   TemplateBox[{"\[Kappa]", "\"3\"", 
+     StyleBox["\"X\"", Italic, StripOnInput -> False]},
+    "Subsuperscript"], "-", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"(", 
+      TagBox[
+       RowBox[{
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"(", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], ")"}], "2"], " ", 
+         TemplateBox[{"\[Kappa]", "\"3\"", 
+           StyleBox["\"B\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"]}], "+", 
+        RowBox[{"3", " ", 
+         RowBox[{"(", 
+          TagBox[
+           RowBox[{
+            RowBox[{
+             TemplateBox[{"\[Kappa]", "\"2\"", 
+               StyleBox["\"B\"", Italic, StripOnInput -> False]},
+              "Subsuperscript"], " ", 
+             TemplateBox[{"\[Kappa]", "\"21\"", 
+               StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+              "Subsuperscript"]}], "-", 
+            RowBox[{
+             TemplateBox[{"\[Kappa]", "\"11\"", 
+               StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+              "Subsuperscript"], " ", 
+             TemplateBox[{"\[Kappa]", "\"12\"", 
+               StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+              "Subsuperscript"]}]}],
+           HoldForm], ")"}], " ", 
+         TemplateBox[{"\[Kappa]", "\"2\"", 
+           StyleBox["\"B\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"]}]}],
+       HoldForm], ")"}], " ", 
+     TemplateBox[{"\[Kappa]", "\"11\"", 
+       StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+      "Subsuperscript"]}], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      TemplateBox[{"\[Kappa]", "\"2\"", 
+        StyleBox["\"B\"", Italic, StripOnInput -> False]},
+       "Subsuperscript"], ")"}], "3"]]}],
+  HoldForm]], "Output",
+ CellChangeTimes->{3.991828637803672*^9},
+ CellLabel->
+  "Out[151]=",ExpressionUUID->"fcc90c18-d370-489b-9ead-fc6bcf900dbe"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4092,7 +4349,164 @@ Cell[BoxData[
      RowBox[{"X", "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"paper", " ", 
      RowBox[{"Eq", ".", " ", "34"}]}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[80]:=",ExpressionUUID->"fa936820-3337-4ebe-a2ec-9b5da3cbc183"]
+ CellLabel->
+  "In[152]:=",ExpressionUUID->"fa936820-3337-4ebe-a2ec-9b5da3cbc183"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   TemplateBox[{"\[Kappa]", "\"4\"", 
+     StyleBox["\"X\"", Italic, StripOnInput -> False]},
+    "Subsuperscript"], "+", 
+   FractionBox[
+    TagBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "3"}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"11\"", 
+           StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "4"], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"3\"", 
+           StyleBox["\"B\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"]}], "-", 
+      RowBox[{"6", " ", 
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"21\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "-", 
+          RowBox[{"2", " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"12\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"11\"", 
+           StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"B\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], " ", 
+       TemplateBox[{"\[Kappa]", "\"3\"", 
+         StyleBox["\"B\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             TemplateBox[{"\[Kappa]", "\"11\"", 
+               StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+              "Subsuperscript"], ")"}], "4"], " ", 
+           TemplateBox[{"\[Kappa]", "\"4\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            TagBox[
+             RowBox[{
+              RowBox[{"4", " ", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 TemplateBox[{"\[Kappa]", "\"11\"", 
+                   StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                  "Subsuperscript"], ")"}], "3"], " ", 
+               TemplateBox[{"\[Kappa]", "\"13\"", 
+                 StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"]}], "+", 
+              RowBox[{"3", " ", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 TemplateBox[{"\[Kappa]", "\"2\"", 
+                   StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                  "Subsuperscript"], ")"}], "2"], " ", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 TemplateBox[{"\[Kappa]", "\"21\"", 
+                   StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                  "Subsuperscript"], ")"}], "2"]}], "+", 
+              RowBox[{"6", " ", 
+               RowBox[{"(", 
+                TagBox[
+                 RowBox[{
+                  RowBox[{"2", " ", 
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    TemplateBox[{"\[Kappa]", "\"12\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"], ")"}], "2"]}], "-", 
+                  RowBox[{
+                   TemplateBox[{"\[Kappa]", "\"2\"", 
+                    StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"], " ", 
+                   TemplateBox[{"\[Kappa]", "\"22\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"]}]}],
+                 HoldForm], ")"}], " ", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 TemplateBox[{"\[Kappa]", "\"11\"", 
+                   StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                  "Subsuperscript"], ")"}], "2"]}], "+", 
+              RowBox[{"4", " ", 
+               RowBox[{"(", 
+                TagBox[
+                 RowBox[{
+                  RowBox[{
+                   TemplateBox[{"\[Kappa]", "\"2\"", 
+                    StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"], " ", 
+                   TemplateBox[{"\[Kappa]", "\"31\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"]}], "-", 
+                  RowBox[{"3", " ", 
+                   TemplateBox[{"\[Kappa]", "\"12\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"], " ", 
+                   TemplateBox[{"\[Kappa]", "\"21\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"]}]}],
+                 HoldForm], ")"}], " ", 
+               TemplateBox[{"\[Kappa]", "\"11\"", 
+                 StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"], " ", 
+               TemplateBox[{"\[Kappa]", "\"2\"", 
+                 StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"]}]}],
+             HoldForm], ")"}], " ", 
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"B\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}]}],
+     HoldForm], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      TemplateBox[{"\[Kappa]", "\"2\"", 
+        StyleBox["\"B\"", Italic, StripOnInput -> False]},
+       "Subsuperscript"], ")"}], "5"]]}],
+  HoldForm]], "Output",
+ CellChangeTimes->{3.991828637895005*^9},
+ CellLabel->
+  "Out[152]=",ExpressionUUID->"1f1ea750-6c31-4144-aca4-385c2df791be"]
+}, Open  ]]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -4118,6 +4532,8 @@ Diagonal and mixed canonical cumulants with two simultaneously conserved \
 charges:\
 \>", "Text",ExpressionUUID->"d0d2e215-e91c-44f1-8bc5-fafab069e22b"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"KappaCE", "[", 
@@ -4131,7 +4547,69 @@ Cell[BoxData[
      RowBox[{"X", "\[VerticalSeparator]", "BQ"}]], ",", "     ", 
     RowBox[{"paper", " ", 
      RowBox[{"Eq", ".", " ", "66"}]}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[81]:=",ExpressionUUID->"48fec5d7-924b-4297-981f-7a8bec93141d"],
+ CellLabel->
+  "In[153]:=",ExpressionUUID->"48fec5d7-924b-4297-981f-7a8bec93141d"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   TemplateBox[{"\[Kappa]", "\"2\"", 
+     StyleBox["\"X\"", Italic, StripOnInput -> False]},
+    "Subsuperscript"], "+", 
+   FractionBox[
+    TagBox[
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"11\"", 
+           StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"B\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], "+", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"11\"", 
+           StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], "-", 
+      RowBox[{"2", " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}]}],
+     HoldForm], 
+    TagBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], ")"}], "2"], "-", 
+      RowBox[{
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"B\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}]}],
+     HoldForm]]}],
+  HoldForm]], "Output",
+ CellChangeTimes->{3.9918286543254557`*^9},
+ CellLabel->
+  "Out[153]=",ExpressionUUID->"5ab000b8-c55e-4196-b1fa-f41897a80970"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4148,7 +4626,83 @@ Cell[BoxData[
      RowBox[{"XY", "\[VerticalSeparator]", "BQ"}]], ",", " ", 
     RowBox[{"paper", " ", 
      RowBox[{"Eq", ".", " ", "67"}]}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[82]:=",ExpressionUUID->"3a6ba937-a9ab-416b-a5ff-8f2fdacd224d"]
+ CellLabel->
+  "In[154]:=",ExpressionUUID->"3a6ba937-a9ab-416b-a5ff-8f2fdacd224d"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   TemplateBox[{"\[Kappa]", "\"11\"", 
+     StyleBox["\"XY\"", Italic, StripOnInput -> False]},
+    "Subsuperscript"], "+", 
+   FractionBox[
+    TagBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"YQ\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "-", 
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"YB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"YB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "-", 
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"YQ\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}]}],
+     HoldForm], 
+    TagBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], ")"}], "2"], "-", 
+      RowBox[{
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"B\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}]}],
+     HoldForm]]}],
+  HoldForm]], "Output",
+ CellChangeTimes->{3.9918286566831417`*^9},
+ CellLabel->
+  "Out[154]=",ExpressionUUID->"07aa4805-9593-4147-b2ef-8e38767f826f"]
+}, Open  ]]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -4168,6 +4722,8 @@ Cell[TextData[{
  "):"
 }], "Text",ExpressionUUID->"20e1737f-8add-41b4-8034-026beb76776d"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"KappaCE", "[", 
@@ -4182,7 +4738,229 @@ Cell[BoxData[
      RowBox[{"X", "\[VerticalSeparator]", "BQS"}]], ",", "     ", 
     RowBox[{"paper", " ", 
      RowBox[{"Eq", ".", " ", "69"}]}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[83]:=",ExpressionUUID->"5c23e644-5032-4f8e-98c0-bd598fc8c5aa"],
+ CellLabel->
+  "In[155]:=",ExpressionUUID->"5c23e644-5032-4f8e-98c0-bd598fc8c5aa"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   TemplateBox[{"\[Kappa]", "\"2\"", 
+     StyleBox["\"X\"", Italic, StripOnInput -> False]},
+    "Subsuperscript"], "+", 
+   FractionBox[
+    TagBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          TemplateBox[{"\[Kappa]", "\"11\"", 
+            StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+           "Subsuperscript"], ")"}], "2"]}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"11\"", 
+           StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"]}], "-", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"11\"", 
+           StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"11\"", 
+           StyleBox["\"XS\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"]}], "+", 
+      RowBox[{"2", " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             TemplateBox[{"\[Kappa]", "\"11\"", 
+               StyleBox["\"XS\"", Italic, StripOnInput -> False]},
+              "Subsuperscript"], ")"}], "2"], " ", 
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "+", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             TemplateBox[{"\[Kappa]", "\"11\"", 
+               StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+              "Subsuperscript"], ")"}], "2"], " ", 
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"S\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "-", 
+          RowBox[{"2", " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"XS\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "2"}], " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"XS\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            TagBox[
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 TemplateBox[{"\[Kappa]", "\"11\"", 
+                   StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+                  "Subsuperscript"], ")"}], "2"]}], "+", 
+              RowBox[{
+               TemplateBox[{"\[Kappa]", "\"2\"", 
+                 StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"], " ", 
+               TemplateBox[{"\[Kappa]", "\"2\"", 
+                 StyleBox["\"S\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"]}]}],
+             HoldForm], ")"}], " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"XS\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            TagBox[
+             RowBox[{
+              RowBox[{
+               TemplateBox[{"\[Kappa]", "\"11\"", 
+                 StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"], " ", 
+               TemplateBox[{"\[Kappa]", "\"11\"", 
+                 StyleBox["\"XS\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"]}], "-", 
+              RowBox[{
+               TemplateBox[{"\[Kappa]", "\"11\"", 
+                 StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"], " ", 
+               TemplateBox[{"\[Kappa]", "\"2\"", 
+                 StyleBox["\"S\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"]}]}],
+             HoldForm], ")"}], " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}]}],
+     HoldForm], 
+    TagBox[
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"11\"", 
+           StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"B\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], "+", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"11\"", 
+           StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"S\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], "-", 
+      RowBox[{"2", " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], ")"}], "2"], "-", 
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"S\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}]}],
+     HoldForm]]}],
+  HoldForm]], "Output",
+ CellChangeTimes->{3.99182866260457*^9},
+ CellLabel->
+  "Out[155]=",ExpressionUUID->"40ed5c5c-2ea6-4465-b3e5-b9d4003c8f2c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4200,7 +4978,305 @@ Cell[BoxData[
      RowBox[{"XY", "\[VerticalSeparator]", "BQS"}]], ",", " ", 
     RowBox[{"paper", " ", 
      RowBox[{"Eq", ".", " ", "70"}]}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[84]:=",ExpressionUUID->"02da2e2e-457d-4a1f-840b-58d4cd70b294"]
+ CellLabel->
+  "In[156]:=",ExpressionUUID->"02da2e2e-457d-4a1f-840b-58d4cd70b294"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   TemplateBox[{"\[Kappa]", "\"11\"", 
+     StyleBox["\"XY\"", Italic, StripOnInput -> False]},
+    "Subsuperscript"], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     TagBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], ")"}], "2"]}], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"YQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "-", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          TemplateBox[{"\[Kappa]", "\"11\"", 
+            StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+           "Subsuperscript"], ")"}], "2"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"XS\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"YS\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "+", 
+       RowBox[{
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"YB\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "+", 
+       RowBox[{
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"YQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"2\"", 
+          StyleBox["\"B\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"2\"", 
+          StyleBox["\"S\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "-", 
+       RowBox[{
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"XS\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"YQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"2\"", 
+          StyleBox["\"B\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "-", 
+       RowBox[{
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"YS\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"2\"", 
+          StyleBox["\"B\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         TagBox[
+          RowBox[{
+           RowBox[{
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"YQ\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}], "-", 
+           RowBox[{
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"YB\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}]}],
+          HoldForm], ")"}], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         TagBox[
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             TagBox[
+              RowBox[{
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"YS\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"2\"", 
+                  StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}], "-", 
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"YB\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}]}],
+              HoldForm], ")"}], " ", 
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"XS\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}], "+", 
+           RowBox[{
+            RowBox[{"(", 
+             TagBox[
+              RowBox[{
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"YB\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"2\"", 
+                  StyleBox["\"S\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}], "-", 
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"YS\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}]}],
+              HoldForm], ")"}], " ", 
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}]}],
+          HoldForm], ")"}], " ", 
+        TemplateBox[{"\[Kappa]", "\"2\"", 
+          StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         TagBox[
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             TagBox[
+              RowBox[{
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"XS\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"YB\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}], "+", 
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"YS\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}]}],
+              HoldForm], ")"}], " ", 
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}], "+", 
+           RowBox[{
+            RowBox[{"(", 
+             TagBox[
+              RowBox[{
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"XS\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"YQ\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}], "+", 
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"YS\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}]}],
+              HoldForm], ")"}], " ", 
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}], "-", 
+           RowBox[{
+            RowBox[{"(", 
+             TagBox[
+              RowBox[{
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"YB\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}], "+", 
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"YQ\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}]}],
+              HoldForm], ")"}], " ", 
+            TemplateBox[{"\[Kappa]", "\"2\"", 
+              StyleBox["\"S\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}]}],
+          HoldForm], ")"}], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}]}],
+      HoldForm], ")"}], "/", 
+    RowBox[{"(", 
+     TagBox[
+      RowBox[{
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          TemplateBox[{"\[Kappa]", "\"11\"", 
+            StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+           "Subsuperscript"], ")"}], "2"], " ", 
+        TemplateBox[{"\[Kappa]", "\"2\"", 
+          StyleBox["\"B\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "+", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          TemplateBox[{"\[Kappa]", "\"11\"", 
+            StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+           "Subsuperscript"], ")"}], "2"], " ", 
+        TemplateBox[{"\[Kappa]", "\"2\"", 
+          StyleBox["\"S\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "-", 
+       RowBox[{"2", " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"QS\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         TagBox[
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             TemplateBox[{"\[Kappa]", "\"11\"", 
+               StyleBox["\"BS\"", Italic, StripOnInput -> False]},
+              "Subsuperscript"], ")"}], "2"], "-", 
+           RowBox[{
+            TemplateBox[{"\[Kappa]", "\"2\"", 
+              StyleBox["\"B\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"2\"", 
+              StyleBox["\"S\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}]}],
+          HoldForm], ")"}], " ", 
+        TemplateBox[{"\[Kappa]", "\"2\"", 
+          StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}]}],
+      HoldForm], ")"}]}]}],
+  HoldForm]], "Output",
+ CellChangeTimes->{3.991828665241983*^9},
+ CellLabel->
+  "Out[156]=",ExpressionUUID->"743cde75-dd3b-4403-bc54-188224402b88"]
+}, Open  ]]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -4219,6 +5295,8 @@ observable X here is arbitrary \[LongDash] it need not be the conserved \
 charge \[LongDash] so the results below still carry mixed (XB) cumulants:"
 }], "Text",ExpressionUUID->"00dba9c8-9574-41cd-9cfa-209c44c64722"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"KappaCE", "[", 
@@ -4230,7 +5308,20 @@ Cell[BoxData[
     SubsuperscriptBox["\[Kappa]", "1", 
      RowBox[{"X", "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"generic", " ", "observable"}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[85]:=",ExpressionUUID->"7c321905-3262-46a4-83a5-3567614f6ce0"],
+ CellLabel->
+  "In[157]:=",ExpressionUUID->"7c321905-3262-46a4-83a5-3567614f6ce0"],
+
+Cell[BoxData[
+ RowBox[{"\[Alpha]", " ", 
+  TemplateBox[{"\[Kappa]", "\"1\"", 
+    StyleBox["\"X\"", Italic, StripOnInput -> False]},
+   "Subsuperscript"]}]], "Output",
+ CellChangeTimes->{3.9918286725074797`*^9},
+ CellLabel->
+  "Out[157]=",ExpressionUUID->"3f8f1f6f-e661-4081-b22d-d2ddfdb57462"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4243,7 +5334,34 @@ Cell[BoxData[
     SubsuperscriptBox["\[Kappa]", "2", 
      RowBox[{"X", "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"generic", " ", "observable"}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[86]:=",ExpressionUUID->"59d80713-4b6d-47c4-a603-57582ef6c319"],
+ CellLabel->
+  "In[158]:=",ExpressionUUID->"59d80713-4b6d-47c4-a603-57582ef6c319"],
+
+Cell[BoxData[
+ RowBox[{"\[Alpha]", " ", 
+  RowBox[{"(", 
+   TagBox[
+    RowBox[{
+     TemplateBox[{"\[Kappa]", "\"2\"", 
+       StyleBox["\"X\"", Italic, StripOnInput -> False]},
+      "Subsuperscript"], "-", 
+     FractionBox[
+      RowBox[{"\[Alpha]", " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"11\"", 
+           StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"]}], 
+      TemplateBox[{"\[Kappa]", "\"2\"", 
+        StyleBox["\"B\"", Italic, StripOnInput -> False]},
+       "Subsuperscript"]]}],
+    HoldForm], ")"}]}]], "Output",
+ CellChangeTimes->{3.991828672532317*^9},
+ CellLabel->
+  "Out[158]=",ExpressionUUID->"ab70fc72-e8c6-48ce-a465-f7326ffa417a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4256,7 +5374,69 @@ Cell[BoxData[
     SubsuperscriptBox["\[Kappa]", "3", 
      RowBox[{"X", "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"generic", " ", "observable"}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[87]:=",ExpressionUUID->"66b20814-cc7e-4d58-b528-a0378a1a2bc4"],
+ CellLabel->
+  "In[159]:=",ExpressionUUID->"66b20814-cc7e-4d58-b528-a0378a1a2bc4"],
+
+Cell[BoxData[
+ RowBox[{"\[Alpha]", " ", 
+  RowBox[{"(", 
+   TagBox[
+    RowBox[{
+     TemplateBox[{"\[Kappa]", "\"3\"", 
+       StyleBox["\"X\"", Italic, StripOnInput -> False]},
+      "Subsuperscript"], "-", 
+     FractionBox[
+      RowBox[{"\[Alpha]", " ", 
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          RowBox[{"3", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             TemplateBox[{"\[Kappa]", "\"2\"", 
+               StyleBox["\"B\"", Italic, StripOnInput -> False]},
+              "Subsuperscript"], ")"}], "2"], " ", 
+           TemplateBox[{"\[Kappa]", "\"21\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "+", 
+          RowBox[{"\[Alpha]", " ", 
+           RowBox[{"(", 
+            TagBox[
+             RowBox[{
+              RowBox[{
+               TemplateBox[{"\[Kappa]", "\"11\"", 
+                 StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"], " ", 
+               TemplateBox[{"\[Kappa]", "\"3\"", 
+                 StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"]}], "-", 
+              RowBox[{"3", " ", 
+               TemplateBox[{"\[Kappa]", "\"12\"", 
+                 StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"], " ", 
+               TemplateBox[{"\[Kappa]", "\"2\"", 
+                 StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"]}]}],
+             HoldForm], ")"}], " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], 
+      SuperscriptBox[
+       RowBox[{"(", 
+        TemplateBox[{"\[Kappa]", "\"2\"", 
+          StyleBox["\"B\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], ")"}], "3"]]}],
+    HoldForm], ")"}]}]], "Output",
+ CellChangeTimes->{3.991828672586175*^9},
+ CellLabel->
+  "Out[159]=",ExpressionUUID->"35adf48b-9186-4c4c-8cbf-a30eaac052ef"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4269,7 +5449,178 @@ Cell[BoxData[
     SubsuperscriptBox["\[Kappa]", "4", 
      RowBox[{"X", "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"generic", " ", "observable"}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[88]:=",ExpressionUUID->"c542199a-bc20-4f86-97d1-d6aca5f5134d"],
+ CellLabel->
+  "In[160]:=",ExpressionUUID->"c542199a-bc20-4f86-97d1-d6aca5f5134d"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", 
+   SuperscriptBox[
+    RowBox[{"(", 
+     TemplateBox[{"\[Kappa]", "\"2\"", 
+       StyleBox["\"B\"", Italic, StripOnInput -> False]},
+      "Subsuperscript"], ")"}], "5"]], 
+  RowBox[{"(", 
+   TagBox[
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "3"}], " ", 
+      SuperscriptBox["\[Alpha]", "4"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], ")"}], "4"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        TemplateBox[{"\[Kappa]", "\"3\"", 
+          StyleBox["\"B\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], ")"}], "2"]}], "+", 
+     RowBox[{"6", " ", 
+      SuperscriptBox["\[Alpha]", "3"], " ", 
+      RowBox[{"(", 
+       TagBox[
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", 
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], " ", 
+          TemplateBox[{"\[Kappa]", "\"21\"", 
+            StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+           "Subsuperscript"]}], "+", 
+         RowBox[{"2", " ", "\[Alpha]", " ", 
+          TemplateBox[{"\[Kappa]", "\"11\"", 
+            StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+           "Subsuperscript"], " ", 
+          TemplateBox[{"\[Kappa]", "\"12\"", 
+            StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+           "Subsuperscript"]}]}],
+        HoldForm], ")"}], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], ")"}], "2"], " ", 
+      TemplateBox[{"\[Kappa]", "\"2\"", 
+        StyleBox["\"B\"", Italic, StripOnInput -> False]},
+       "Subsuperscript"], " ", 
+      TemplateBox[{"\[Kappa]", "\"3\"", 
+        StyleBox["\"B\"", Italic, StripOnInput -> False]},
+       "Subsuperscript"]}], "+", 
+     RowBox[{"\[Alpha]", " ", 
+      RowBox[{"(", 
+       TagBox[
+        RowBox[{
+         RowBox[{
+          SuperscriptBox["\[Alpha]", "3"], " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], ")"}], "4"], " ", 
+          TemplateBox[{"\[Kappa]", "\"4\"", 
+            StyleBox["\"B\"", Italic, StripOnInput -> False]},
+           "Subsuperscript"]}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           TagBox[
+            RowBox[{
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"(", 
+                TemplateBox[{"\[Kappa]", "\"2\"", 
+                  StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], ")"}], "3"], " ", 
+              TemplateBox[{"\[Kappa]", "\"4\"", 
+                StyleBox["\"X\"", Italic, StripOnInput -> False]},
+               "Subsuperscript"]}], "-", 
+             RowBox[{"\[Alpha]", " ", 
+              RowBox[{"(", 
+               TagBox[
+                RowBox[{
+                 RowBox[{"3", " ", 
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    TemplateBox[{"\[Kappa]", "\"21\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"], ")"}], "2"]}], "+", 
+                 RowBox[{"4", " ", 
+                  TemplateBox[{"\[Kappa]", "\"11\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                   "Subsuperscript"], " ", 
+                  TemplateBox[{"\[Kappa]", "\"31\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                   "Subsuperscript"]}]}],
+                HoldForm], ")"}], " ", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                TemplateBox[{"\[Kappa]", "\"2\"", 
+                  StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], ")"}], "2"]}], "-", 
+             RowBox[{"4", " ", 
+              SuperscriptBox["\[Alpha]", "3"], " ", 
+              RowBox[{"(", 
+               TagBox[
+                RowBox[{
+                 RowBox[{"3", " ", 
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    TemplateBox[{"\[Kappa]", "\"12\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"], ")"}], "2"]}], "+", 
+                 RowBox[{
+                  TemplateBox[{"\[Kappa]", "\"11\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                   "Subsuperscript"], " ", 
+                  TemplateBox[{"\[Kappa]", "\"13\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                   "Subsuperscript"]}]}],
+                HoldForm], ")"}], " ", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], ")"}], "2"]}], "+", 
+             RowBox[{"6", " ", 
+              SuperscriptBox["\[Alpha]", "2"], " ", 
+              RowBox[{"(", 
+               TagBox[
+                RowBox[{
+                 RowBox[{
+                  TemplateBox[{"\[Kappa]", "\"11\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                   "Subsuperscript"], " ", 
+                  TemplateBox[{"\[Kappa]", "\"22\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                   "Subsuperscript"]}], "+", 
+                 RowBox[{"2", " ", 
+                  TemplateBox[{"\[Kappa]", "\"12\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                   "Subsuperscript"], " ", 
+                  TemplateBox[{"\[Kappa]", "\"21\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                   "Subsuperscript"]}]}],
+                HoldForm], ")"}], " ", 
+              TemplateBox[{"\[Kappa]", "\"11\"", 
+                StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+               "Subsuperscript"], " ", 
+              TemplateBox[{"\[Kappa]", "\"2\"", 
+                StyleBox["\"B\"", Italic, StripOnInput -> False]},
+               "Subsuperscript"]}]}],
+            HoldForm], ")"}], " ", 
+          TemplateBox[{"\[Kappa]", "\"2\"", 
+            StyleBox["\"B\"", Italic, StripOnInput -> False]},
+           "Subsuperscript"]}]}],
+        HoldForm], ")"}], " ", 
+      TemplateBox[{"\[Kappa]", "\"2\"", 
+        StyleBox["\"B\"", Italic, StripOnInput -> False]},
+       "Subsuperscript"]}]}],
+    HoldForm], ")"}]}]], "Output",
+ CellChangeTimes->{3.991828672847994*^9},
+ CellLabel->
+  "Out[160]=",ExpressionUUID->"636e93bf-08bb-4291-b025-3b3702200f41"]
+}, Open  ]],
 
 Cell[TextData[{
  "Composing with ",
@@ -4278,8 +5629,7 @@ Cell[TextData[{
  Cell[BoxData[
   FormBox[
    RowBox[{"X", "=", 
-    SubscriptBox["B", "in"]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+    SubscriptBox["B", "in"]}], TraditionalForm]],ExpressionUUID->
   "2e1e5426-ce59-4da0-8a0f-c165df98768a"],
  "  (the observable is the accepted conserved charge). The observable and \
 charge indices then merge, every mixed (XB) cumulant collapses to a pure \
@@ -4290,6 +5640,8 @@ use \[Beta] = 1 - \[Alpha]."
  CellChangeTimes->{{3.991183784889352*^9, 
   3.991183790106059*^9}},ExpressionUUID->"de44f5ee-7667-4b67-b800-\
 d1b25f4d6d80"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4307,9 +5659,21 @@ Cell[BoxData[
       SubscriptBox["B", "in"], "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"paper", " ", 
      RowBox[{"Eq", ".", " ", "73"}]}]}], " ", "*)"}]}]], "Input",
- CellChangeTimes->{{3.991183851588518*^9, 
-  3.991183852104094*^9}},ExpressionUUID->"9c187a41-ec95-49dd-a49d-\
-12c6d9510143"],
+ CellChangeTimes->{{3.991183851588518*^9, 3.991183852104094*^9}},
+ CellLabel->
+  "In[161]:=",ExpressionUUID->"9c187a41-ec95-49dd-a49d-12c6d9510143"],
+
+Cell[BoxData[
+ RowBox[{"\[Alpha]", " ", 
+  TemplateBox[{"\[Kappa]", "\"1\"", 
+    StyleBox["\"B\"", Italic, StripOnInput -> False]},
+   "Subsuperscript"]}]], "Output",
+ CellChangeTimes->{3.991828680703905*^9},
+ CellLabel->
+  "Out[161]=",ExpressionUUID->"fb8ef7e0-9253-428a-a51e-8b56506fefcf"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4327,7 +5691,20 @@ Cell[BoxData[
       SubscriptBox["B", "in"], "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"paper", " ", 
      RowBox[{"Eq", ".", " ", "74"}]}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[90]:=",ExpressionUUID->"118834e2-1a6f-413e-a052-ce3e1241bd56"],
+ CellLabel->
+  "In[162]:=",ExpressionUUID->"118834e2-1a6f-413e-a052-ce3e1241bd56"],
+
+Cell[BoxData[
+ RowBox[{"\[Alpha]", " ", "\[Beta]", " ", 
+  TemplateBox[{"\[Kappa]", "\"2\"", 
+    StyleBox["\"B\"", Italic, StripOnInput -> False]},
+   "Subsuperscript"]}]], "Output",
+ CellChangeTimes->{3.991828680732482*^9},
+ CellLabel->
+  "Out[162]=",ExpressionUUID->"f6211bdc-99c1-4632-88e8-0aa89e3c9385"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4351,9 +5728,28 @@ Cell[BoxData[
        RowBox[{"1", "-", 
         RowBox[{"2", " ", "\[Alpha]"}]}], ")"}], " ", "\[Kappa]_", 
       RowBox[{"3", "^", "B"}]}]}]}], " ", "*)"}]}]], "Input",
- CellChangeTimes->{{3.991183828007794*^9, 
-  3.991183854585788*^9}},ExpressionUUID->"c2449175-5a77-4ddb-9171-\
-70dedb731373"],
+ CellChangeTimes->{{3.991183828007794*^9, 3.991183854585788*^9}},
+ CellLabel->
+  "In[163]:=",ExpressionUUID->"c2449175-5a77-4ddb-9171-70dedb731373"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "\[Alpha]"}], " ", "\[Beta]", " ", 
+  RowBox[{"(", 
+   TagBox[
+    RowBox[{
+     RowBox[{"-", "1"}], "+", 
+     RowBox[{"2", " ", "\[Alpha]"}]}],
+    HoldForm], ")"}], " ", 
+  TemplateBox[{"\[Kappa]", "\"3\"", 
+    StyleBox["\"B\"", Italic, StripOnInput -> False]},
+   "Subsuperscript"]}]], "Output",
+ CellChangeTimes->{3.99182868073771*^9},
+ CellLabel->
+  "Out[163]=",ExpressionUUID->"226583f7-9533-4664-be3d-afe72e88ee30"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4388,9 +5784,50 @@ Cell[BoxData[
             RowBox[{"\[Kappa]_", 
              RowBox[{"3", "^", "B"}]}], ")"}], "^", "2"}], "/", "\[Kappa]_"}], 
          RowBox[{"2", "^", "B"}]}]}], "]"}]}]}]}], " ", "*)"}]}]], "Input",
- CellChangeTimes->{{3.991183845552147*^9, 
-  3.991183855865552*^9}},ExpressionUUID->"567d9e21-32b0-416b-bbcf-\
-c214916dc4dd"]
+ CellChangeTimes->{{3.991183845552147*^9, 3.991183855865552*^9}},
+ CellLabel->
+  "In[164]:=",ExpressionUUID->"567d9e21-32b0-416b-bbcf-c214916dc4dd"],
+
+Cell[BoxData[
+ RowBox[{"-", 
+  FractionBox[
+   RowBox[{"\[Alpha]", " ", "\[Beta]", " ", 
+    RowBox[{"(", 
+     TagBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         TemplateBox[{"\[Kappa]", "\"2\"", 
+           StyleBox["\"B\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"]}], " ", 
+        TemplateBox[{"\[Kappa]", "\"4\"", 
+          StyleBox["\"B\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "+", 
+       RowBox[{"3", " ", "\[Alpha]", " ", "\[Beta]", " ", 
+        RowBox[{"(", 
+         TagBox[
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             TemplateBox[{"\[Kappa]", "\"3\"", 
+               StyleBox["\"B\"", Italic, StripOnInput -> False]},
+              "Subsuperscript"], ")"}], "2"], "+", 
+           RowBox[{
+            TemplateBox[{"\[Kappa]", "\"2\"", 
+              StyleBox["\"B\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"4\"", 
+              StyleBox["\"B\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}]}],
+          HoldForm], ")"}]}]}],
+      HoldForm], ")"}]}], 
+   TemplateBox[{"\[Kappa]", "\"2\"", 
+     StyleBox["\"B\"", Italic, StripOnInput -> False]},
+    "Subsuperscript"]]}]], "Output",
+ CellChangeTimes->{3.9918286807651*^9},
+ CellLabel->
+  "Out[164]=",ExpressionUUID->"c02dff62-bf2d-47c0-9622-9a81ba6f40e6"]
+}, Open  ]]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -4413,20 +5850,20 @@ conserved charge itself, ",
  Cell[BoxData[
   FormBox[
    RowBox[{"X", "=", 
-    SubscriptBox["B", "in"]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+    SubscriptBox["B", "in"]}], TraditionalForm]],ExpressionUUID->
   "c289bc7a-6b53-40f1-a815-4f4c3ae3f9b1"],
  ", drawn by Bernoulli sampling from the fixed total ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["B", "tot"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SubscriptBox["B", "tot"], TraditionalForm]],ExpressionUUID->
   "bdda37e5-3734-4848-a464-10c41fef0300"],
  "."
 }], "Text",
  CellChangeTimes->{{3.9911854901309757`*^9, 
   3.991185510606164*^9}},ExpressionUUID->"508b008e-0ffc-4990-bf90-\
 30ff703916ae"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4441,8 +5878,21 @@ Cell[BoxData[
      RowBox[{
       SubscriptBox["B", "in"], "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"paper", " ", 
-     RowBox[{"Eq", ".", " ", "94"}]}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[93]:=",ExpressionUUID->"1a0e9ebb-b2b3-4187-980a-97dc61334aec"],
+     RowBox[{"Eq", ".", " ", "96"}]}]}], " ", "*)"}]}]], "Input",
+ CellLabel->
+  "In[165]:=",ExpressionUUID->"1a0e9ebb-b2b3-4187-980a-97dc61334aec"],
+
+Cell[BoxData[
+ RowBox[{"\[Alpha]", " ", 
+  TemplateBox[{"\[Kappa]", "\"1\"", 
+    StyleBox["\"B\"", Italic, StripOnInput -> False]},
+   "Subsuperscript"]}]], "Output",
+ CellChangeTimes->{3.991828690973435*^9},
+ CellLabel->
+  "Out[165]=",ExpressionUUID->"9da3041f-c2fe-4e97-9047-871857c824b1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4457,10 +5907,22 @@ Cell[BoxData[
      RowBox[{
       SubscriptBox["B", "in"], "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"paper", " ", 
-     RowBox[{"Eq", ".", " ", "95"}]}]}], " ", "*)"}]}]], "Input",
- CellChangeTimes->{{3.991185481902397*^9, 
-  3.9911854861582336`*^9}},ExpressionUUID->"07063c70-ed14-43a3-b855-\
-6f1c16312689"],
+     RowBox[{"Eq", ".", " ", "97"}]}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.991185481902397*^9, 3.991185486158233*^9}},
+ CellLabel->
+  "In[166]:=",ExpressionUUID->"07063c70-ed14-43a3-b855-6f1c16312689"],
+
+Cell[BoxData[
+ RowBox[{"\[Alpha]", " ", "\[Beta]", " ", 
+  TemplateBox[{"\[Kappa]", "\"1\"", 
+    StyleBox["\"B\"", Italic, StripOnInput -> False]},
+   "Subsuperscript"]}]], "Output",
+ CellChangeTimes->{3.9918286909949207`*^9},
+ CellLabel->
+  "Out[166]=",ExpressionUUID->"80eed2e9-52ed-4952-875b-0be3f0290880"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4475,10 +5937,29 @@ Cell[BoxData[
      RowBox[{
       SubscriptBox["B", "in"], "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"paper", " ", 
-     RowBox[{"Eq", ".", " ", "96"}]}]}], " ", "*)"}]}]], "Input",
- CellChangeTimes->{{3.991183965617868*^9, 
-  3.991183989214951*^9}},ExpressionUUID->"f66506af-5c3f-42bf-9401-\
-0b4688105721"],
+     RowBox[{"Eq", ".", " ", "98"}]}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.991183965617868*^9, 3.991183989214951*^9}},
+ CellLabel->
+  "In[167]:=",ExpressionUUID->"f66506af-5c3f-42bf-9401-0b4688105721"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "\[Alpha]"}], " ", "\[Beta]", " ", 
+  RowBox[{"(", 
+   TagBox[
+    RowBox[{
+     RowBox[{"-", "1"}], "+", 
+     RowBox[{"2", " ", "\[Alpha]"}]}],
+    HoldForm], ")"}], " ", 
+  TemplateBox[{"\[Kappa]", "\"1\"", 
+    StyleBox["\"B\"", Italic, StripOnInput -> False]},
+   "Subsuperscript"]}]], "Output",
+ CellChangeTimes->{3.991828691004134*^9},
+ CellLabel->
+  "Out[167]=",ExpressionUUID->"d4563c12-35fe-474e-a47d-d7e9883ff794"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4493,8 +5974,24 @@ Cell[BoxData[
      RowBox[{
       SubscriptBox["B", "in"], "\[VerticalSeparator]", "B"}]], ",", " ", 
     RowBox[{"paper", " ", 
-     RowBox[{"Eq", ".", " ", "97"}]}]}], " ", "*)"}]}]], "Input",
- CellLabel->"In[96]:=",ExpressionUUID->"6af42c59-0577-40bf-bdf5-51f893408977"]
+     RowBox[{"Eq", ".", " ", "99"}]}]}], " ", "*)"}]}]], "Input",
+ CellLabel->
+  "In[168]:=",ExpressionUUID->"6af42c59-0577-40bf-bdf5-51f893408977"],
+
+Cell[BoxData[
+ RowBox[{"\[Alpha]", " ", "\[Beta]", " ", 
+  RowBox[{"(", 
+   TagBox[
+    RowBox[{"1", "-", 
+     RowBox[{"6", " ", "\[Alpha]", " ", "\[Beta]"}]}],
+    HoldForm], ")"}], " ", 
+  TemplateBox[{"\[Kappa]", "\"1\"", 
+    StyleBox["\"B\"", Italic, StripOnInput -> False]},
+   "Subsuperscript"]}]], "Output",
+ CellChangeTimes->{3.991828691012701*^9},
+ CellLabel->
+  "Out[168]=",ExpressionUUID->"0011d66c-7d08-447f-bb9b-347e447226c0"]
+}, Open  ]]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -4513,8 +6010,7 @@ order ",
   FormBox[
    RowBox[{"1", "/", 
     SubsuperscriptBox["\[Kappa]", "2", "B"]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "65a8598a-5826-4b84-a5d8-fa2de2e97373"],
+  ExpressionUUID->"65a8598a-5826-4b84-a5d8-fa2de2e97373"],
  " (i.e. O(1/V) in an extensive system; paper Appendix A). The two examples \
 below show one conserved charge (",
  StyleBox["s = 1", "Code"],
@@ -4526,12 +6022,123 @@ below show one conserved charge (",
   3.991184166654785*^9}},ExpressionUUID->"2e05dad9-8655-4beb-86cf-\
 c812c4589415"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"KappaCE", "[", 
   RowBox[{
    RowBox[{"{", "2", "}"}], ",", " ", 
    RowBox[{"\"\<NLO\>\"", " ", "->", " ", "True"}]}], "]"}]], "Input",
- CellLabel->"In[97]:=",ExpressionUUID->"b9003704-cf39-4d55-961a-d608fdecb3ce"],
+ CellLabel->
+  "In[169]:=",ExpressionUUID->"b9003704-cf39-4d55-961a-d608fdecb3ce"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   TemplateBox[{"\[Kappa]", "\"2\"", 
+     StyleBox["\"X\"", Italic, StripOnInput -> False]},
+    "Subsuperscript"], "+", 
+   FractionBox[
+    TagBox[
+     RowBox[{
+      RowBox[{"2", " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"11\"", 
+           StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"3\"", 
+           StyleBox["\"B\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"]}], "-", 
+      RowBox[{
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          TemplateBox[{"\[Kappa]", "\"22\"", 
+            StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+           "Subsuperscript"], "+", 
+          RowBox[{"2", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             TemplateBox[{"\[Kappa]", "\"11\"", 
+               StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+              "Subsuperscript"], ")"}], "2"]}]}],
+         HoldForm], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"2\"", 
+           StyleBox["\"B\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "3"]}], "-", 
+      RowBox[{
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"4\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "+", 
+          RowBox[{"4", " ", 
+           TemplateBox[{"\[Kappa]", "\"12\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"3\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       TemplateBox[{"\[Kappa]", "\"11\"", 
+         StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"B\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            TemplateBox[{"\[Kappa]", "\"12\"", 
+              StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], ")"}], "2"], "+", 
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"21\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"3\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "+", 
+          RowBox[{"2", " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"13\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"2\"", 
+           StyleBox["\"B\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"]}]}],
+     HoldForm], 
+    RowBox[{"2", " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"B\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], ")"}], "4"]}]]}],
+  HoldForm]], "Output",
+ CellChangeTimes->{3.991828696113984*^9},
+ CellLabel->
+  "Out[169]=",ExpressionUUID->"ff2e9a60-3128-46a1-8b9f-1aa0c78100cd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"KappaCE", "[", 
@@ -4540,8 +6147,221 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{"\"\<B\>\"", ",", "\"\<Q\>\""}], "}"}], ",", " ", 
    RowBox[{"\"\<NLO\>\"", " ", "->", " ", "True"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.9911720236019163`*^9, 3.9911720962623215`*^9}},
- CellLabel->"In[98]:=",ExpressionUUID->"f0776f58-5b9a-4c78-b07f-2080c73d4403"],
+ CellChangeTimes->{{3.991172023601917*^9, 3.9911720962623215`*^9}},
+ CellLabel->
+  "In[170]:=",ExpressionUUID->"f0776f58-5b9a-4c78-b07f-2080c73d4403"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   TemplateBox[{"\[Kappa]", "\"1\"", 
+     StyleBox["\"X\"", Italic, StripOnInput -> False]},
+    "Subsuperscript"], "+", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{"2", " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], ")"}], "2"], "-", 
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], "2"]}]], 
+    RowBox[{"(", 
+     TagBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          TemplateBox[{"\[Kappa]", "\"11\"", 
+            StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+           "Subsuperscript"], ")"}], "3"], " ", 
+        TemplateBox[{"\[Kappa]", "\"111\"", 
+          StyleBox["\"XBQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "+", 
+       RowBox[{
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          TemplateBox[{"\[Kappa]", "\"2\"", 
+            StyleBox["\"B\"", Italic, StripOnInput -> False]},
+           "Subsuperscript"], ")"}], "2"], " ", 
+        TemplateBox[{"\[Kappa]", "\"3\"", 
+          StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         TagBox[
+          RowBox[{
+           RowBox[{
+            TemplateBox[{"\[Kappa]", "\"12\"", 
+              StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"2\"", 
+              StyleBox["\"B\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}], "+", 
+           RowBox[{
+            TemplateBox[{"\[Kappa]", "\"12\"", 
+              StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"2\"", 
+              StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}], "+", 
+           RowBox[{"2", " ", 
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"12\"", 
+              StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}], "+", 
+           RowBox[{"2", " ", 
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"21\"", 
+              StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}]}],
+          HoldForm], ")"}], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          TemplateBox[{"\[Kappa]", "\"11\"", 
+            StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+           "Subsuperscript"], ")"}], "2"]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         TagBox[
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", 
+             TemplateBox[{"\[Kappa]", "\"12\"", 
+               StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+              "Subsuperscript"]}], " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              TemplateBox[{"\[Kappa]", "\"2\"", 
+                StyleBox["\"B\"", Italic, StripOnInput -> False]},
+               "Subsuperscript"], ")"}], "2"]}], "+", 
+           RowBox[{
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"2\"", 
+              StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"3\"", 
+              StyleBox["\"B\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}], "+", 
+           RowBox[{
+            RowBox[{"(", 
+             TagBox[
+              RowBox[{
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"12\"", 
+                  StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}], "+", 
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"21\"", 
+                  StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}], "-", 
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"12\"", 
+                  StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"2\"", 
+                  StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}]}],
+              HoldForm], ")"}], " ", 
+            TemplateBox[{"\[Kappa]", "\"2\"", 
+              StyleBox["\"B\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}]}],
+          HoldForm], ")"}], " ", 
+        TemplateBox[{"\[Kappa]", "\"2\"", 
+          StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         TagBox[
+          RowBox[{
+           RowBox[{
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"2\"", 
+              StyleBox["\"B\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"3\"", 
+              StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}], "+", 
+           RowBox[{"3", " ", 
+            TemplateBox[{"\[Kappa]", "\"11\"", 
+              StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"12\"", 
+              StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"], " ", 
+            TemplateBox[{"\[Kappa]", "\"2\"", 
+              StyleBox["\"B\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}], "+", 
+           RowBox[{
+            RowBox[{"(", 
+             TagBox[
+              RowBox[{
+               RowBox[{
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"XQ\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"3\"", 
+                  StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}], "-", 
+               RowBox[{"2", " ", 
+                TemplateBox[{"\[Kappa]", "\"111\"", 
+                  StyleBox["\"XBQ\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"2\"", 
+                  StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}], "+", 
+               RowBox[{"3", " ", 
+                TemplateBox[{"\[Kappa]", "\"11\"", 
+                  StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"], " ", 
+                TemplateBox[{"\[Kappa]", "\"21\"", 
+                  StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+                 "Subsuperscript"]}]}],
+              HoldForm], ")"}], " ", 
+            TemplateBox[{"\[Kappa]", "\"2\"", 
+              StyleBox["\"Q\"", Italic, StripOnInput -> False]},
+             "Subsuperscript"]}]}],
+          HoldForm], ")"}], " ", 
+        TemplateBox[{"\[Kappa]", "\"11\"", 
+          StyleBox["\"BQ\"", Italic, StripOnInput -> False]},
+         "Subsuperscript"]}]}],
+      HoldForm], ")"}]}]}],
+  HoldForm]], "Output",
+ CellChangeTimes->{3.9918286979428787`*^9},
+ CellLabel->
+  "Out[170]=",ExpressionUUID->"1a024401-bfa8-43a7-8bb6-8bed2c90b4a6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4563,9 +6383,115 @@ Cell[BoxData[
       RowBox[{"{", "2", "}"}], ",", 
       RowBox[{"\"\<Form\>\"", "->", "\"\<Raw\>\""}]}], "]"}]}], "//", 
    "Simplify"}]}]], "Input",
- CellChangeTimes->{{3.9911854197045803`*^9, 3.991185421691375*^9}},
+ CellChangeTimes->{{3.99118541970458*^9, 3.991185421691375*^9}},
  CellLabel->
-  "In[529]:=",ExpressionUUID->"1ee45adb-b685-49a9-a3a6-355e65876a37"]
+  "In[171]:=",ExpressionUUID->"1ee45adb-b685-49a9-a3a6-355e65876a37"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", 
+   RowBox[{"2", " ", 
+    SuperscriptBox[
+     RowBox[{"kGCE", "[", 
+      RowBox[{
+       RowBox[{"{", "0", "}"}], ",", 
+       RowBox[{"{", "2", "}"}]}], "]"}], "4"]}]], 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"2", " ", 
+     SuperscriptBox[
+      RowBox[{"kGCE", "[", 
+       RowBox[{
+        RowBox[{"{", "0", "}"}], ",", 
+        RowBox[{"{", "3", "}"}]}], "]"}], "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"kGCE", "[", 
+       RowBox[{
+        RowBox[{"{", "1", "}"}], ",", 
+        RowBox[{"{", "1", "}"}]}], "]"}], "2"]}], "+", 
+    RowBox[{
+     RowBox[{"kGCE", "[", 
+      RowBox[{
+       RowBox[{"{", "0", "}"}], ",", 
+       RowBox[{"{", "2", "}"}]}], "]"}], " ", 
+     RowBox[{"kGCE", "[", 
+      RowBox[{
+       RowBox[{"{", "0", "}"}], ",", 
+       RowBox[{"{", "3", "}"}]}], "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "4"}], " ", 
+        RowBox[{"kGCE", "[", 
+         RowBox[{
+          RowBox[{"{", "1", "}"}], ",", 
+          RowBox[{"{", "1", "}"}]}], "]"}], " ", 
+        RowBox[{"kGCE", "[", 
+         RowBox[{
+          RowBox[{"{", "1", "}"}], ",", 
+          RowBox[{"{", "2", "}"}]}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"kGCE", "[", 
+         RowBox[{
+          RowBox[{"{", "0", "}"}], ",", 
+          RowBox[{"{", "2", "}"}]}], "]"}], " ", 
+        RowBox[{"kGCE", "[", 
+         RowBox[{
+          RowBox[{"{", "2", "}"}], ",", 
+          RowBox[{"{", "1", "}"}]}], "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"kGCE", "[", 
+      RowBox[{
+       RowBox[{"{", "0", "}"}], ",", 
+       RowBox[{"{", "2", "}"}]}], "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"kGCE", "[", 
+          RowBox[{
+           RowBox[{"{", "0", "}"}], ",", 
+           RowBox[{"{", "4", "}"}]}], "]"}]}], " ", 
+        SuperscriptBox[
+         RowBox[{"kGCE", "[", 
+          RowBox[{
+           RowBox[{"{", "1", "}"}], ",", 
+           RowBox[{"{", "1", "}"}]}], "]"}], "2"]}], "+", 
+       RowBox[{
+        RowBox[{"kGCE", "[", 
+         RowBox[{
+          RowBox[{"{", "0", "}"}], ",", 
+          RowBox[{"{", "2", "}"}]}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"kGCE", "[", 
+            RowBox[{
+             RowBox[{"{", "1", "}"}], ",", 
+             RowBox[{"{", "2", "}"}]}], "]"}], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{"kGCE", "[", 
+            RowBox[{
+             RowBox[{"{", "1", "}"}], ",", 
+             RowBox[{"{", "1", "}"}]}], "]"}], " ", 
+           RowBox[{"kGCE", "[", 
+            RowBox[{
+             RowBox[{"{", "1", "}"}], ",", 
+             RowBox[{"{", "3", "}"}]}], "]"}]}], "-", 
+          RowBox[{
+           RowBox[{"kGCE", "[", 
+            RowBox[{
+             RowBox[{"{", "0", "}"}], ",", 
+             RowBox[{"{", "2", "}"}]}], "]"}], " ", 
+           RowBox[{"kGCE", "[", 
+            RowBox[{
+             RowBox[{"{", "2", "}"}], ",", 
+             RowBox[{"{", "2", "}"}]}], "]"}]}]}], ")"}]}]}], ")"}]}]}], 
+   ")"}]}]], "Output",
+ CellChangeTimes->{3.991828701371928*^9},
+ CellLabel->
+  "Out[171]=",ExpressionUUID->"859f5c7a-56b1-4bb4-8b4d-a1e3ffa39660"]
+}, Open  ]]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -4610,8 +6536,9 @@ Cell[BoxData[
      RowBox[{"{", 
       RowBox[{"exportDir", ",", " ", "\"\<kappa2_BQ.py\>\""}], "}"}], "]"}]}],
     "]"}]}]], "Input",
- CellChangeTimes->{{3.9911865083768663`*^9, 3.991186509353973*^9}},
- CellLabel->"In[73]:=",ExpressionUUID->"b42cac58-542d-4e73-9d3c-8b78c0d3204a"],
+ CellChangeTimes->{{3.991186508376867*^9, 3.991186509353973*^9}},
+ CellLabel->
+  "In[172]:=",ExpressionUUID->"b42cac58-542d-4e73-9d3c-8b78c0d3204a"],
 
 Cell[BoxData[
  RowBox[{"KappaExport", "[", 
@@ -4625,7 +6552,8 @@ Cell[BoxData[
      RowBox[{"exportDir", ",", " ", "\"\<kappa2_BQ.c\>\""}], "}"}], "]"}]}], 
   "]"}]], "Input",
  CellChangeTimes->{3.991186514002832*^9},
- CellLabel->"In[74]:=",ExpressionUUID->"a5527853-b5f6-46f9-8d6e-659056e738f3"],
+ CellLabel->
+  "In[173]:=",ExpressionUUID->"a5527853-b5f6-46f9-8d6e-659056e738f3"],
 
 Cell[BoxData[
  RowBox[{
@@ -4659,10 +6587,11 @@ Cell[BoxData[
     ",", " ", 
     RowBox[{"\"\<CSE\>\"", " ", "->", " ", "True"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.9911718748022594`*^9, 3.991171895396348*^9}, {
-   3.991171983981621*^9, 3.9911719875563655`*^9}, {3.9911734038922806`*^9, 
-   3.9911734115823803`*^9}, 3.9911865158722267`*^9},
- CellLabel->"In[75]:=",ExpressionUUID->"3b345c12-bcda-4c64-b59a-ad3c0dd3c48f"]
-}, Open  ]],
+   3.991171983981621*^9, 3.9911719875563655`*^9}, {3.99117340389228*^9, 
+   3.9911734115823803`*^9}, 3.991186515872227*^9},
+ CellLabel->
+  "In[174]:=",ExpressionUUID->"3b345c12-bcda-4c64-b59a-ad3c0dd3c48f"]
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -4684,6 +6613,8 @@ dominates the runtime, so prefer ",
  " for realistic work:"
 }], "Text",ExpressionUUID->"2cd55e4a-aeb7-48bd-9125-c1babf237c14"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"KappaCE", "[", 
@@ -4699,7 +6630,165 @@ Cell[BoxData[
    "*)"}]}]], "Input",
  CellChangeTimes->{3.9911718542692175`*^9},
  CellLabel->
-  "In[102]:=",ExpressionUUID->"0912108c-d244-481e-a42f-2d18c7807e93"],
+  "In[175]:=",ExpressionUUID->"0912108c-d244-481e-a42f-2d18c7807e93"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{
+   TemplateBox[{"\[Kappa]", "\"4\"", 
+     StyleBox["\"X\"", Italic, StripOnInput -> False]},
+    "Subsuperscript"], "+", 
+   FractionBox[
+    TagBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "3"}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"11\"", 
+           StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "4"], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"3\"", 
+           StyleBox["\"B\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"]}], "-", 
+      RowBox[{"6", " ", 
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          RowBox[{
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"21\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "-", 
+          RowBox[{"2", " ", 
+           TemplateBox[{"\[Kappa]", "\"11\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"], " ", 
+           TemplateBox[{"\[Kappa]", "\"12\"", 
+             StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         TemplateBox[{"\[Kappa]", "\"11\"", 
+           StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+          "Subsuperscript"], ")"}], "2"], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"B\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"], " ", 
+       TemplateBox[{"\[Kappa]", "\"3\"", 
+         StyleBox["\"B\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        TagBox[
+         RowBox[{
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             TemplateBox[{"\[Kappa]", "\"11\"", 
+               StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+              "Subsuperscript"], ")"}], "4"], " ", 
+           TemplateBox[{"\[Kappa]", "\"4\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            TagBox[
+             RowBox[{
+              RowBox[{"4", " ", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 TemplateBox[{"\[Kappa]", "\"11\"", 
+                   StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                  "Subsuperscript"], ")"}], "3"], " ", 
+               TemplateBox[{"\[Kappa]", "\"13\"", 
+                 StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"]}], "+", 
+              RowBox[{"3", " ", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 TemplateBox[{"\[Kappa]", "\"2\"", 
+                   StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                  "Subsuperscript"], ")"}], "2"], " ", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 TemplateBox[{"\[Kappa]", "\"21\"", 
+                   StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                  "Subsuperscript"], ")"}], "2"]}], "+", 
+              RowBox[{"6", " ", 
+               RowBox[{"(", 
+                TagBox[
+                 RowBox[{
+                  RowBox[{"2", " ", 
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    TemplateBox[{"\[Kappa]", "\"12\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"], ")"}], "2"]}], "-", 
+                  RowBox[{
+                   TemplateBox[{"\[Kappa]", "\"2\"", 
+                    StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"], " ", 
+                   TemplateBox[{"\[Kappa]", "\"22\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"]}]}],
+                 HoldForm], ")"}], " ", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 TemplateBox[{"\[Kappa]", "\"11\"", 
+                   StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                  "Subsuperscript"], ")"}], "2"]}], "+", 
+              RowBox[{"4", " ", 
+               RowBox[{"(", 
+                TagBox[
+                 RowBox[{
+                  RowBox[{
+                   TemplateBox[{"\[Kappa]", "\"2\"", 
+                    StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"], " ", 
+                   TemplateBox[{"\[Kappa]", "\"31\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"]}], "-", 
+                  RowBox[{"3", " ", 
+                   TemplateBox[{"\[Kappa]", "\"12\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"], " ", 
+                   TemplateBox[{"\[Kappa]", "\"21\"", 
+                    StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                    "Subsuperscript"]}]}],
+                 HoldForm], ")"}], " ", 
+               TemplateBox[{"\[Kappa]", "\"11\"", 
+                 StyleBox["\"XB\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"], " ", 
+               TemplateBox[{"\[Kappa]", "\"2\"", 
+                 StyleBox["\"B\"", Italic, StripOnInput -> False]},
+                "Subsuperscript"]}]}],
+             HoldForm], ")"}], " ", 
+           TemplateBox[{"\[Kappa]", "\"2\"", 
+             StyleBox["\"B\"", Italic, StripOnInput -> False]},
+            "Subsuperscript"]}]}],
+         HoldForm], ")"}], " ", 
+       TemplateBox[{"\[Kappa]", "\"2\"", 
+         StyleBox["\"B\"", Italic, StripOnInput -> False]},
+        "Subsuperscript"]}]}],
+     HoldForm], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      TemplateBox[{"\[Kappa]", "\"2\"", 
+        StyleBox["\"B\"", Italic, StripOnInput -> False]},
+       "Subsuperscript"], ")"}], "5"]]}],
+  HoldForm]], "Output",
+ CellChangeTimes->{3.99182874662469*^9},
+ CellLabel->
+  "Out[175]=",ExpressionUUID->"3acc964d-f1e0-43c2-9469-4c345ea28940"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4720,7 +6809,13 @@ Cell[BoxData[
      "pathologically", " ", "slow", " ", "at", " ", "this", " ", "size"}]}], 
    " ", "*)"}]}]], "Input",
  CellLabel->
-  "In[103]:=",ExpressionUUID->"09ebf4cb-c4d5-4c9b-91f6-f276931fbfd3"],
+  "In[176]:=",ExpressionUUID->"09ebf4cb-c4d5-4c9b-91f6-f276931fbfd3"],
+
+Cell[BoxData["8184554"], "Output",
+ CellChangeTimes->{3.9918287497707033`*^9},
+ CellLabel->
+  "Out[176]=",ExpressionUUID->"c2da47b6-9cad-4c7d-8215-eb0d231d9ffa"]
+}, Open  ]],
 
 Cell[TextData[{
  "Results are cached: repeated calls at the same arguments return \
@@ -4736,6 +6831,8 @@ Cell[TextData[{
  StyleBox["True", "Code"],
  "):"
 }], "Text",ExpressionUUID->"a3787b20-e7c3-4618-b2cb-088a8b3f0c34"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4755,15 +6852,21 @@ Cell[BoxData[
     "\"\<Method\>\"", " ", "->", " ", "\"\<CoefficientMatching\>\""}]}], 
    "]"}]}]], "Input",
  CellLabel->
-  "In[104]:=",ExpressionUUID->"a3dc533e-f89c-4a23-bb03-836aa9c70453"]
+  "In[177]:=",ExpressionUUID->"a3dc533e-f89c-4a23-bb03-836aa9c70453"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.991828754337483*^9},
+ CellLabel->
+  "Out[177]=",ExpressionUUID->"8d9dc3f9-acac-49b2-88ad-e3c8b5440e12"]
+}, Open  ]]
 }, Closed]]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1477, 874},
-WindowMargins->{{Automatic, 6}, {Automatic, 8}},
+WindowMargins->{{Automatic, 124}, {62, Automatic}},
 TaggingRules-><|"CodeFormatter" -> <|"ToolbarState" -> False|>|>,
-FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (January 30, 2023)",
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[StyleDefinitions -> "Default.nb"]], 
@@ -4800,7 +6903,7 @@ StyleDefinitions->Notebook[{
     StyleData["Item", StyleDefinitions -> StyleData["Text"]], CellDingbat -> 
     "\[FilledSmallSquare]", CellMargins -> {{66, 10}, {4, 4}}, Hyphenation -> 
     True]}, Visible -> False, FrontEndVersion -> 
-  "13.2 for Mac OS X ARM (64-bit) (January 30, 2023)", StyleDefinitions -> 
+  "14.0 for Mac OS X ARM (64-bit) (December 12, 2023)", StyleDefinitions -> 
   "PrivateStylesheetFormatting.nb"],
 ExpressionUUID->"ad295547-d355-44c8-9e0b-0d0c9112f653"
 ]
@@ -4823,147 +6926,240 @@ Cell[1620, 44, 95, 0, 64, "Section",ExpressionUUID->"fa1b6d39-3677-4379-b0f6-1be
 Cell[1718, 46, 674, 13, 48, "Text",ExpressionUUID->"795e91be-c9f5-4a19-81c0-0d605bd582cd"],
 Cell[CellGroupData[{
 Cell[2417, 63, 85, 0, 43, "Subsection",ExpressionUUID->"5d767bf2-a7d2-4227-adfd-4589e7442cf6"],
-Cell[2505, 65, 1122, 27, 92, "Text",ExpressionUUID->"2e95a546-6674-4cfe-bdc1-bbe34c32e4c3"]
+Cell[2505, 65, 1091, 26, 92, "Text",ExpressionUUID->"2e95a546-6674-4cfe-bdc1-bbe34c32e4c3"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3676, 98, 91, 0, 64, "Section",ExpressionUUID->"f2104352-4f26-4759-89ca-8714735cea76"],
-Cell[3770, 100, 149, 2, 29, "Text",ExpressionUUID->"097a2dd5-50ca-48b9-b146-0ad5af11f143"],
+Cell[3645, 97, 91, 0, 64, "Section",ExpressionUUID->"f2104352-4f26-4759-89ca-8714735cea76"],
+Cell[3739, 99, 149, 2, 29, "Text",ExpressionUUID->"097a2dd5-50ca-48b9-b146-0ad5af11f143"],
 Cell[CellGroupData[{
-Cell[3944, 106, 88, 0, 43, "Subsection",ExpressionUUID->"7d3a6e51-dea5-4d61-b41a-778e2a57adfe"],
-Cell[4035, 108, 268, 7, 51, "Code",ExpressionUUID->"50464032-74c8-4ff3-86b1-61f238d77392"],
-Cell[4306, 117, 12315, 320, 1193, "Code",ExpressionUUID->"c6aaebe7-6d0d-4b81-a80b-87c6cbdb09e8"]
+Cell[3913, 105, 88, 0, 43, "Subsection",ExpressionUUID->"7d3a6e51-dea5-4d61-b41a-778e2a57adfe"],
+Cell[4004, 107, 269, 7, 70, "Code",ExpressionUUID->"50464032-74c8-4ff3-86b1-61f238d77392"],
+Cell[4276, 116, 12316, 320, 70, "Code",ExpressionUUID->"c6aaebe7-6d0d-4b81-a80b-87c6cbdb09e8"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[16658, 442, 122, 0, 31, "Subsection",ExpressionUUID->"ac0d3ee5-cff6-4cc5-83f6-b84de1088311"],
-Cell[16783, 444, 8934, 205, 850, "Code",ExpressionUUID->"ffbdaddd-fa50-463c-b51f-197881997e04"],
-Cell[25720, 651, 1666, 44, 166, "Code",ExpressionUUID->"145a7f99-3529-4d01-acbb-714c242cefcd"],
-Cell[27389, 697, 7625, 170, 718, "Code",ExpressionUUID->"67d2b89f-f977-46e2-ba83-4e12c9e0fe97"]
+Cell[16629, 441, 122, 0, 31, "Subsection",ExpressionUUID->"ac0d3ee5-cff6-4cc5-83f6-b84de1088311"],
+Cell[16754, 443, 8934, 205, 70, "Code",ExpressionUUID->"ffbdaddd-fa50-463c-b51f-197881997e04"],
+Cell[25691, 650, 1666, 44, 70, "Code",ExpressionUUID->"145a7f99-3529-4d01-acbb-714c242cefcd"],
+Cell[27360, 696, 7642, 172, 70, "Code",ExpressionUUID->"67d2b89f-f977-46e2-ba83-4e12c9e0fe97"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[35051, 872, 133, 0, 31, "Subsection",ExpressionUUID->"9344eeea-1f74-4f85-8f16-77d2f09fe0bc"],
-Cell[35187, 874, 17833, 437, 1611, "Code",ExpressionUUID->"25d9de1b-1939-44cd-8e1e-23bbd9664a2c"]
+Cell[35039, 873, 133, 0, 31, "Subsection",ExpressionUUID->"9344eeea-1f74-4f85-8f16-77d2f09fe0bc"],
+Cell[35175, 875, 17833, 437, 70, "Code",ExpressionUUID->"25d9de1b-1939-44cd-8e1e-23bbd9664a2c"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[53057, 1316, 96, 0, 31, "Subsection",ExpressionUUID->"15fe559c-e93b-4f9d-8de7-fae1e2a774a0"],
-Cell[53156, 1318, 3832, 92, 282, "Code",ExpressionUUID->"f35b814a-48b0-4d52-8815-57d901bf433e"],
-Cell[56991, 1412, 13105, 307, 945, "Code",ExpressionUUID->"7f20253c-309b-4da0-a25d-09afd0eec5da"]
+Cell[53045, 1317, 96, 0, 31, "Subsection",ExpressionUUID->"15fe559c-e93b-4f9d-8de7-fae1e2a774a0"],
+Cell[53144, 1319, 3845, 93, 70, "Code",ExpressionUUID->"f35b814a-48b0-4d52-8815-57d901bf433e"],
+Cell[56992, 1414, 13105, 307, 70, "Code",ExpressionUUID->"7f20253c-309b-4da0-a25d-09afd0eec5da"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[70133, 1724, 110, 0, 31, "Subsection",ExpressionUUID->"aa2415e3-dcb0-4158-a9d2-820c4a77f73e"],
-Cell[70246, 1726, 4849, 128, 261, "Code",ExpressionUUID->"a5f28774-db04-4283-98d2-77bb653e8fff"]
+Cell[70134, 1726, 110, 0, 31, "Subsection",ExpressionUUID->"aa2415e3-dcb0-4158-a9d2-820c4a77f73e"],
+Cell[70247, 1728, 4853, 129, 70, "Code",ExpressionUUID->"a5f28774-db04-4283-98d2-77bb653e8fff"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[75132, 1859, 137, 1, 31, "Subsection",ExpressionUUID->"092618e5-d92f-463e-9e38-35a0126b6040"],
-Cell[75272, 1862, 5430, 143, 365, "Code",ExpressionUUID->"7b615438-18ad-4380-8ee9-dbc8dde6f223"]
+Cell[75137, 1862, 137, 1, 31, "Subsection",ExpressionUUID->"092618e5-d92f-463e-9e38-35a0126b6040"],
+Cell[75277, 1865, 5434, 144, 70, "Code",ExpressionUUID->"7b615438-18ad-4380-8ee9-dbc8dde6f223"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[80739, 2010, 108, 0, 31, "Subsection",ExpressionUUID->"282dc806-46b5-45d8-a68f-a4158e8bf3d3"],
-Cell[80850, 2012, 778, 19, 89, "Text",ExpressionUUID->"055556fa-1b37-46b9-835f-e1c27919bc97"],
-Cell[81631, 2033, 20644, 522, 1692, "Code",ExpressionUUID->"3a5f1383-d203-49d9-bf80-41c1ac91ce6f"]
+Cell[80748, 2014, 108, 0, 31, "Subsection",ExpressionUUID->"282dc806-46b5-45d8-a68f-a4158e8bf3d3"],
+Cell[80859, 2016, 778, 19, 70, "Text",ExpressionUUID->"055556fa-1b37-46b9-835f-e1c27919bc97"],
+Cell[81640, 2037, 20678, 526, 70, "Code",ExpressionUUID->"3a5f1383-d203-49d9-bf80-41c1ac91ce6f"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[102312, 2560, 99, 0, 31, "Subsection",ExpressionUUID->"c77cd643-a93f-4c39-91fd-8f2c3c261b30"],
-Cell[102414, 2562, 1271, 31, 128, "Text",ExpressionUUID->"fbb465f4-0413-4dc3-8ac2-0b566427b7e4"],
-Cell[103688, 2595, 79, 0, 29, "Text",ExpressionUUID->"65c50f82-4de6-4044-a19e-14eb0d5a724e"],
-Cell[103770, 2597, 505, 17, 24, "Item",ExpressionUUID->"be2412f6-6f68-4ff9-b19d-f4db330b99aa"],
-Cell[104278, 2616, 222, 5, 24, "Item",ExpressionUUID->"a8539c85-6214-4aed-8c09-862457f6d75f"],
-Cell[104503, 2623, 497, 15, 24, "Item",ExpressionUUID->"310904ca-b28f-47a5-988c-1ee24871c92b"],
-Cell[105003, 2640, 458, 10, 24, "Item",ExpressionUUID->"ef1cbeb9-6d0b-4b3a-bfab-649fde244e5e"],
-Cell[105464, 2652, 512, 12, 44, "Item",ExpressionUUID->"c10157f5-dc7e-4071-b9f5-02a175037139"],
-Cell[105979, 2666, 17561, 417, 1311, "Code",ExpressionUUID->"57865269-7e8d-4021-a6dc-3e05483cac9f"]
+Cell[102355, 2568, 99, 0, 31, "Subsection",ExpressionUUID->"c77cd643-a93f-4c39-91fd-8f2c3c261b30"],
+Cell[102457, 2570, 1271, 31, 70, "Text",ExpressionUUID->"fbb465f4-0413-4dc3-8ac2-0b566427b7e4"],
+Cell[103731, 2603, 79, 0, 70, "Text",ExpressionUUID->"65c50f82-4de6-4044-a19e-14eb0d5a724e"],
+Cell[103813, 2605, 505, 17, 70, "Item",ExpressionUUID->"be2412f6-6f68-4ff9-b19d-f4db330b99aa"],
+Cell[104321, 2624, 222, 5, 70, "Item",ExpressionUUID->"a8539c85-6214-4aed-8c09-862457f6d75f"],
+Cell[104546, 2631, 497, 15, 70, "Item",ExpressionUUID->"310904ca-b28f-47a5-988c-1ee24871c92b"],
+Cell[105046, 2648, 458, 10, 70, "Item",ExpressionUUID->"ef1cbeb9-6d0b-4b3a-bfab-649fde244e5e"],
+Cell[105507, 2660, 512, 12, 70, "Item",ExpressionUUID->"c10157f5-dc7e-4071-b9f5-02a175037139"],
+Cell[106022, 2674, 17588, 420, 70, "Code",ExpressionUUID->"57865269-7e8d-4021-a6dc-3e05483cac9f"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[123577, 3088, 92, 0, 31, "Subsection",ExpressionUUID->"09b772de-93ad-4a50-876d-f657f54a0a34"],
-Cell[123672, 3090, 1134, 27, 128, "Text",ExpressionUUID->"fe7894fe-92f5-4837-8ba5-19ea0a65b5b8"],
-Cell[124809, 3119, 839, 17, 69, "Text",ExpressionUUID->"5277e9a2-b5b3-4284-8a92-bc4e1657a470"],
-Cell[125651, 3138, 79, 0, 29, "Text",ExpressionUUID->"841e5a2d-0b92-483a-b487-2be44de467d6"],
-Cell[125733, 3140, 224, 5, 24, "Item",ExpressionUUID->"5736de3a-9ea2-4ea1-a2e9-908c9d6abb81"],
-Cell[125960, 3147, 207, 5, 24, "Item",ExpressionUUID->"c0b33e0a-1902-4837-8221-700872b4a9f1"],
-Cell[126170, 3154, 270, 7, 24, "Item",ExpressionUUID->"7b9b89ab-233b-48aa-b8c6-5b62343784bb"],
-Cell[126443, 3163, 378, 11, 24, "Item",ExpressionUUID->"a2cad4e0-adb5-4480-bf77-1ef0eddc4de5"],
-Cell[126824, 3176, 30746, 698, 2200, "Code",ExpressionUUID->"d22d8b6e-d790-44da-8f1e-2dc39a6018d2"],
-Cell[157573, 3876, 837, 23, 109, "Input",ExpressionUUID->"41e5b393-4d2c-4996-98b3-751dbdb7ab05"]
+Cell[123647, 3099, 92, 0, 31, "Subsection",ExpressionUUID->"09b772de-93ad-4a50-876d-f657f54a0a34"],
+Cell[123742, 3101, 1134, 27, 128, "Text",ExpressionUUID->"fe7894fe-92f5-4837-8ba5-19ea0a65b5b8"],
+Cell[124879, 3130, 839, 17, 69, "Text",ExpressionUUID->"5277e9a2-b5b3-4284-8a92-bc4e1657a470"],
+Cell[125721, 3149, 79, 0, 29, "Text",ExpressionUUID->"841e5a2d-0b92-483a-b487-2be44de467d6"],
+Cell[125803, 3151, 224, 5, 24, "Item",ExpressionUUID->"5736de3a-9ea2-4ea1-a2e9-908c9d6abb81"],
+Cell[126030, 3158, 207, 5, 24, "Item",ExpressionUUID->"c0b33e0a-1902-4837-8221-700872b4a9f1"],
+Cell[126240, 3165, 270, 7, 24, "Item",ExpressionUUID->"7b9b89ab-233b-48aa-b8c6-5b62343784bb"],
+Cell[126513, 3174, 378, 11, 24, "Item",ExpressionUUID->"a2cad4e0-adb5-4480-bf77-1ef0eddc4de5"],
+Cell[126894, 3187, 30695, 699, 70, "Code",ExpressionUUID->"d22d8b6e-d790-44da-8f1e-2dc39a6018d2"],
+Cell[157592, 3888, 592, 17, 70, "Input",ExpressionUUID->"41e5b393-4d2c-4996-98b3-751dbdb7ab05"]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[158233, 3911, 85, 0, 64, "Section",ExpressionUUID->"f0531db0-8e58-411d-ab9a-01273b0bc868"],
+Cell[CellGroupData[{
+Cell[158343, 3915, 92, 0, 43, "Subsection",ExpressionUUID->"712ab32b-3f2b-4f62-9ea2-9a206f5f1f4b"],
+Cell[158438, 3917, 749, 21, 50, "Text",ExpressionUUID->"dde30b82-0cfa-46ac-bf9a-bbf78d6032e0"],
+Cell[CellGroupData[{
+Cell[159212, 3942, 377, 10, 55, "Input",ExpressionUUID->"486fa9fe-80b6-47cf-b385-e67530efed59"],
+Cell[159592, 3954, 625, 18, 74, "Output",ExpressionUUID->"ddff6096-61f4-4214-9347-2249958a9300"]
+}, Open  ]],
+Cell[160232, 3975, 213, 3, 29, "Text",ExpressionUUID->"ebe8557b-b04f-49b9-b2a4-52c27dd0dbf4"],
+Cell[CellGroupData[{
+Cell[160470, 3982, 733, 19, 55, "Input",ExpressionUUID->"65934f5e-ca9d-44de-909a-26d2371318fa"],
+Cell[161206, 4003, 2634, 72, 77, "Output",ExpressionUUID->"a900108e-adfb-49fe-bad6-0ff315aaa881"]
+}, Open  ]],
+Cell[163855, 4078, 291, 9, 30, "Text",ExpressionUUID->"d2da3768-6f44-4c5b-93d0-538792eb3e1b"],
+Cell[CellGroupData[{
+Cell[164171, 4091, 479, 13, 51, "Input",ExpressionUUID->"781daaa5-e9a9-436b-aff5-1d0ddccf43b2"],
+Cell[164653, 4106, 556, 9, 69, "Output",ExpressionUUID->"5147fa2d-a89f-4f2c-bd5f-31237e8fced0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[165246, 4120, 425, 11, 51, "Input",ExpressionUUID->"1d01b6a6-a546-464f-a607-ed6fb1046311"],
+Cell[165674, 4133, 576, 19, 68, "Output",ExpressionUUID->"c794250b-8394-4887-84a9-c9c3eb9ed327"]
+}, Open  ]],
+Cell[166265, 4155, 248, 5, 30, "Text",ExpressionUUID->"7bbd5163-1141-4795-8a4f-6f1ee999dd81"],
+Cell[CellGroupData[{
+Cell[166538, 4164, 674, 19, 71, "Input",ExpressionUUID->"5aeacd44-fe58-4fcd-853e-4ce19261a21e"],
+Cell[167215, 4185, 291, 9, 65, "Output",ExpressionUUID->"2808c342-2ead-4261-beee-3c4bd8930bee"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[158459, 3905, 85, 0, 64, "Section",ExpressionUUID->"f0531db0-8e58-411d-ab9a-01273b0bc868"],
+Cell[167555, 4200, 120, 0, 43, "Subsection",ExpressionUUID->"f798a319-d9cd-4545-9d99-18f8dcea4429"],
+Cell[167678, 4202, 174, 3, 29, "Text",ExpressionUUID->"4c43fcbf-9eef-47ba-b31d-452e05013a17"],
 Cell[CellGroupData[{
-Cell[158569, 3909, 92, 0, 43, "Subsection",ExpressionUUID->"712ab32b-3f2b-4f62-9ea2-9a206f5f1f4b"],
-Cell[158664, 3911, 749, 21, 50, "Text",ExpressionUUID->"dde30b82-0cfa-46ac-bf9a-bbf78d6032e0"],
-Cell[159416, 3934, 377, 10, 55, "Input",ExpressionUUID->"486fa9fe-80b6-47cf-b385-e67530efed59"],
-Cell[159796, 3946, 213, 3, 29, "Text",ExpressionUUID->"ebe8557b-b04f-49b9-b2a4-52c27dd0dbf4"],
-Cell[160012, 3951, 733, 19, 55, "Input",ExpressionUUID->"65934f5e-ca9d-44de-909a-26d2371318fa"],
-Cell[160748, 3972, 291, 9, 30, "Text",ExpressionUUID->"d2da3768-6f44-4c5b-93d0-538792eb3e1b"],
-Cell[161042, 3983, 476, 12, 51, "Input",ExpressionUUID->"781daaa5-e9a9-436b-aff5-1d0ddccf43b2"],
-Cell[161521, 3997, 425, 11, 51, "Input",ExpressionUUID->"1d01b6a6-a546-464f-a607-ed6fb1046311"],
-Cell[161949, 4010, 248, 5, 30, "Text",ExpressionUUID->"7bbd5163-1141-4795-8a4f-6f1ee999dd81"],
-Cell[162200, 4017, 674, 19, 71, "Input",ExpressionUUID->"5aeacd44-fe58-4fcd-853e-4ce19261a21e"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[162911, 4041, 120, 0, 31, "Subsection",ExpressionUUID->"f798a319-d9cd-4545-9d99-18f8dcea4429"],
-Cell[163034, 4043, 174, 3, 29, "Text",ExpressionUUID->"4c43fcbf-9eef-47ba-b31d-452e05013a17"],
-Cell[163211, 4048, 401, 10, 55, "Input",ExpressionUUID->"543f5b46-b47f-42f5-9579-1e74ae2e5f8d"],
-Cell[163615, 4060, 401, 10, 55, "Input",ExpressionUUID->"3722a07f-942d-4025-a48e-565e045a87f1"],
-Cell[164019, 4072, 401, 10, 55, "Input",ExpressionUUID->"63c3900c-f25c-4bd6-9a41-d101dda55381"],
-Cell[164423, 4084, 401, 10, 55, "Input",ExpressionUUID->"fa936820-3337-4ebe-a2ec-9b5da3cbc183"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[164861, 4099, 109, 0, 31, "Subsection",ExpressionUUID->"22bb0ae3-fab9-4b30-abf3-16dc1c5eefea"],
-Cell[164973, 4101, 666, 12, 124, "Text",ExpressionUUID->"74be2d9e-e0cc-4024-9ff7-9c0db799a45f"],
-Cell[165642, 4115, 162, 3, 29, "Text",ExpressionUUID->"d0d2e215-e91c-44f1-8bc5-fafab069e22b"],
-Cell[165807, 4120, 508, 13, 55, "Input",ExpressionUUID->"48fec5d7-924b-4297-981f-7a8bec93141d"],
-Cell[166318, 4135, 558, 15, 55, "Input",ExpressionUUID->"3a6ba937-a9ab-416b-a5ff-8f2fdacd224d"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[166913, 4155, 114, 0, 31, "Subsection",ExpressionUUID->"ca9ec51d-86ac-4a91-9ed4-4e4b1213457d"],
-Cell[167030, 4157, 284, 11, 29, "Text",ExpressionUUID->"20e1737f-8add-41b4-8034-026beb76776d"],
-Cell[167317, 4170, 538, 14, 55, "Input",ExpressionUUID->"5c23e644-5032-4f8e-98c0-bd598fc8c5aa"],
-Cell[167858, 4186, 588, 16, 55, "Input",ExpressionUUID->"02da2e2e-457d-4a1f-840b-58d4cd70b294"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[168483, 4207, 94, 0, 31, "Subsection",ExpressionUUID->"e5236c77-9317-411b-a45d-ed0c692a04f7"],
-Cell[168580, 4209, 698, 10, 49, "Text",ExpressionUUID->"00dba9c8-9574-41cd-9cfa-209c44c64722"],
-Cell[169281, 4221, 460, 11, 55, "Input",ExpressionUUID->"7c321905-3262-46a4-83a5-3567614f6ce0"],
-Cell[169744, 4234, 460, 11, 55, "Input",ExpressionUUID->"59d80713-4b6d-47c4-a603-57582ef6c319"],
-Cell[170207, 4247, 460, 11, 55, "Input",ExpressionUUID->"66b20814-cc7e-4d58-b528-a0378a1a2bc4"],
-Cell[170670, 4260, 460, 11, 55, "Input",ExpressionUUID->"c542199a-bc20-4f86-97d1-d6aca5f5134d"],
-Cell[171133, 4273, 766, 18, 50, "Text",ExpressionUUID->"de44f5ee-7667-4b67-b800-d1b25f4d6d80"],
-Cell[171902, 4293, 634, 18, 43, "Input",ExpressionUUID->"9c187a41-ec95-49dd-a49d-12c6d9510143"],
-Cell[172539, 4313, 587, 16, 57, "Input",ExpressionUUID->"118834e2-1a6f-413e-a052-ce3e1241bd56"],
-Cell[173129, 4331, 856, 24, 43, "Input",ExpressionUUID->"c2449175-5a77-4ddb-9171-70dedb731373"],
-Cell[173988, 4357, 1226, 35, 43, "Input",ExpressionUUID->"567d9e21-32b0-416b-bbcf-c214916dc4dd"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[175251, 4397, 106, 0, 31, "Subsection",ExpressionUUID->"7c1a0379-0bc2-40c2-811e-f36971ba11e7"],
-Cell[175360, 4399, 1172, 29, 54, "Text",ExpressionUUID->"508b008e-0ffc-4990-bf90-30ff703916ae"],
-Cell[176535, 4430, 526, 14, 57, "Input",ExpressionUUID->"1a0e9ebb-b2b3-4187-980a-97dc61334aec"],
-Cell[177064, 4446, 575, 16, 43, "Input",ExpressionUUID->"07063c70-ed14-43a3-b855-6f1c16312689"],
-Cell[177642, 4464, 573, 16, 43, "Input",ExpressionUUID->"f66506af-5c3f-42bf-9401-0b4688105721"],
-Cell[178218, 4482, 526, 14, 57, "Input",ExpressionUUID->"6af42c59-0577-40bf-bdf5-51f893408977"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[178781, 4501, 181, 3, 31, "Subsection",ExpressionUUID->"18c7e1ef-39f2-427d-bf4e-bf7315c91278"],
-Cell[178965, 4506, 744, 20, 53, "Text",ExpressionUUID->"2e05dad9-8655-4beb-86cf-c812c4589415"],
-Cell[179712, 4528, 239, 5, 51, "Input",ExpressionUUID->"b9003704-cf39-4d55-961a-d608fdecb3ce"],
-Cell[179954, 4535, 384, 8, 51, "Input",ExpressionUUID->"f0776f58-5b9a-4c78-b07f-2080c73d4403"],
-Cell[180341, 4545, 782, 22, 71, "Input",ExpressionUUID->"1ee45adb-b685-49a9-a3a6-355e65876a37"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[181160, 4572, 92, 0, 31, "Subsection",ExpressionUUID->"bc200495-447f-4b10-8c22-28896baf1368"],
-Cell[181255, 4574, 930, 20, 107, "Text",ExpressionUUID->"cc06a4f9-55f1-41ba-926b-5028c33d1566"],
-Cell[182188, 4596, 694, 17, 71, "Input",ExpressionUUID->"b42cac58-542d-4e73-9d3c-8b78c0d3204a"],
-Cell[182885, 4615, 494, 12, 51, "Input",ExpressionUUID->"a5527853-b5f6-46f9-8d6e-659056e738f3"],
-Cell[183382, 4629, 1493, 34, 71, "Input",ExpressionUUID->"3b345c12-bcda-4c64-b59a-ad3c0dd3c48f"]
+Cell[167877, 4209, 405, 11, 55, "Input",ExpressionUUID->"543f5b46-b47f-42f5-9579-1e74ae2e5f8d"],
+Cell[168285, 4222, 259, 6, 49, "Output",ExpressionUUID->"dc9efaed-af78-4bd7-b3fb-73a675853f1a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[184912, 4668, 126, 0, 43, "Subsection",ExpressionUUID->"fddb6372-c390-4120-893c-473bf1138832"],
-Cell[185041, 4670, 470, 14, 30, "Text",ExpressionUUID->"2cd55e4a-aeb7-48bd-9125-c1babf237c14"],
-Cell[185514, 4686, 577, 15, 51, "Input",ExpressionUUID->"0912108c-d244-481e-a42f-2d18c7807e93"],
-Cell[186094, 4703, 748, 19, 51, "Input",ExpressionUUID->"09ebf4cb-c4d5-4c9b-91f6-f276931fbfd3"],
-Cell[186845, 4724, 287, 5, 30, "Text",ExpressionUUID->"2ef83cc0-aecf-4086-9e25-03b224935898"],
-Cell[187135, 4731, 244, 6, 30, "Text",ExpressionUUID->"a3787b20-e7c3-4618-b2cb-088a8b3f0c34"],
-Cell[187382, 4739, 639, 18, 51, "Input",ExpressionUUID->"a3dc533e-f89c-4a23-bb03-836aa9c70453"]
+Cell[168581, 4233, 405, 11, 55, "Input",ExpressionUUID->"3722a07f-942d-4025-a48e-565e045a87f1"],
+Cell[168989, 4246, 622, 18, 74, "Output",ExpressionUUID->"db4ab281-e322-4e58-bf1f-fb9029e9bebd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[169648, 4269, 405, 11, 55, "Input",ExpressionUUID->"63c3900c-f25c-4bd6-9a41-d101dda55381"],
+Cell[170056, 4282, 2016, 54, 76, "Output",ExpressionUUID->"fcc90c18-d370-489b-9ead-fc6bcf900dbe"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[172109, 4341, 405, 11, 55, "Input",ExpressionUUID->"fa936820-3337-4ebe-a2ec-9b5da3cbc183"],
+Cell[172517, 4354, 6346, 153, 76, "Output",ExpressionUUID->"1f1ea750-6c31-4144-aca4-385c2df791be"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[178912, 4513, 109, 0, 31, "Subsection",ExpressionUUID->"22bb0ae3-fab9-4b30-abf3-16dc1c5eefea"],
+Cell[179024, 4515, 666, 12, 124, "Text",ExpressionUUID->"74be2d9e-e0cc-4024-9ff7-9c0db799a45f"],
+Cell[179693, 4529, 162, 3, 29, "Text",ExpressionUUID->"d0d2e215-e91c-44f1-8bc5-fafab069e22b"],
+Cell[CellGroupData[{
+Cell[179880, 4536, 512, 14, 55, "Input",ExpressionUUID->"48fec5d7-924b-4297-981f-7a8bec93141d"],
+Cell[180395, 4552, 2030, 56, 78, "Output",ExpressionUUID->"5ab000b8-c55e-4196-b1fa-f41897a80970"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[182462, 4613, 562, 16, 55, "Input",ExpressionUUID->"3a6ba937-a9ab-416b-a5ff-8f2fdacd224d"],
+Cell[183027, 4631, 2636, 72, 77, "Output",ExpressionUUID->"07aa4805-9593-4147-b2ef-8e38767f826f"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[185712, 4709, 114, 0, 31, "Subsection",ExpressionUUID->"ca9ec51d-86ac-4a91-9ed4-4e4b1213457d"],
+Cell[185829, 4711, 284, 11, 29, "Text",ExpressionUUID->"20e1737f-8add-41b4-8034-026beb76776d"],
+Cell[CellGroupData[{
+Cell[186138, 4726, 542, 15, 55, "Input",ExpressionUUID->"5c23e644-5032-4f8e-98c0-bd598fc8c5aa"],
+Cell[186683, 4743, 8547, 216, 78, "Output",ExpressionUUID->"40ed5c5c-2ea6-4465-b3e5-b9d4003c8f2c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[195267, 4964, 592, 17, 55, "Input",ExpressionUUID->"02da2e2e-457d-4a1f-840b-58d4cd70b294"],
+Cell[195862, 4983, 12213, 294, 75, "Output",ExpressionUUID->"743cde75-dd3b-4403-bc54-188224402b88"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[208124, 5283, 94, 0, 31, "Subsection",ExpressionUUID->"e5236c77-9317-411b-a45d-ed0c692a04f7"],
+Cell[208221, 5285, 698, 10, 49, "Text",ExpressionUUID->"00dba9c8-9574-41cd-9cfa-209c44c64722"],
+Cell[CellGroupData[{
+Cell[208944, 5299, 464, 12, 55, "Input",ExpressionUUID->"7c321905-3262-46a4-83a5-3567614f6ce0"],
+Cell[209411, 5313, 294, 7, 49, "Output",ExpressionUUID->"3f8f1f6f-e661-4081-b22d-d2ddfdb57462"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[209742, 5325, 464, 12, 55, "Input",ExpressionUUID->"59d80713-4b6d-47c4-a603-57582ef6c319"],
+Cell[210209, 5339, 746, 21, 75, "Output",ExpressionUUID->"ab70fc72-e8c6-48ce-a465-f7326ffa417a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[210992, 5365, 464, 12, 55, "Input",ExpressionUUID->"66b20814-cc7e-4d58-b528-a0378a1a2bc4"],
+Cell[211459, 5379, 2214, 56, 76, "Output",ExpressionUUID->"35adf48b-9186-4c4c-8cbf-a30eaac052ef"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[213710, 5440, 464, 12, 55, "Input",ExpressionUUID->"c542199a-bc20-4f86-97d1-d6aca5f5134d"],
+Cell[214177, 5454, 6943, 167, 96, "Output",ExpressionUUID->"636e93bf-08bb-4291-b025-3b3702200f41"]
+}, Open  ]],
+Cell[221135, 5624, 735, 17, 50, "Text",ExpressionUUID->"de44f5ee-7667-4b67-b800-d1b25f4d6d80"],
+Cell[CellGroupData[{
+Cell[221895, 5645, 657, 18, 55, "Input",ExpressionUUID->"9c187a41-ec95-49dd-a49d-12c6d9510143"],
+Cell[222555, 5665, 292, 7, 49, "Output",ExpressionUUID->"fb8ef7e0-9253-428a-a51e-8b56506fefcf"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[222884, 5677, 591, 17, 55, "Input",ExpressionUUID->"118834e2-1a6f-413e-a052-ce3e1241bd56"],
+Cell[223478, 5696, 308, 7, 49, "Output",ExpressionUUID->"f6211bdc-99c1-4632-88e8-0aa89e3c9385"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[223823, 5708, 879, 24, 55, "Input",ExpressionUUID->"c2449175-5a77-4ddb-9171-70dedb731373"],
+Cell[224705, 5734, 463, 14, 49, "Output",ExpressionUUID->"226583f7-9533-4664-be3d-afe72e88ee30"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[225205, 5753, 1249, 35, 55, "Input",ExpressionUUID->"567d9e21-32b0-416b-bbcf-c214916dc4dd"],
+Cell[226457, 5790, 1422, 38, 74, "Output",ExpressionUUID->"c02dff62-bf2d-47c0-9622-9a81ba6f40e6"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[227928, 5834, 106, 0, 31, "Subsection",ExpressionUUID->"7c1a0379-0bc2-40c2-811e-f36971ba11e7"],
+Cell[228037, 5836, 1110, 27, 51, "Text",ExpressionUUID->"508b008e-0ffc-4990-bf90-30ff703916ae"],
+Cell[CellGroupData[{
+Cell[229172, 5867, 530, 15, 55, "Input",ExpressionUUID->"1a0e9ebb-b2b3-4187-980a-97dc61334aec"],
+Cell[229705, 5884, 292, 7, 49, "Output",ExpressionUUID->"9da3041f-c2fe-4e97-9047-871857c824b1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[230034, 5896, 596, 16, 55, "Input",ExpressionUUID->"07063c70-ed14-43a3-b855-6f1c16312689"],
+Cell[230633, 5914, 310, 7, 49, "Output",ExpressionUUID->"80eed2e9-52ed-4952-875b-0be3f0290880"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[230980, 5926, 596, 16, 55, "Input",ExpressionUUID->"f66506af-5c3f-42bf-9401-0b4688105721"],
+Cell[231579, 5944, 464, 14, 49, "Output",ExpressionUUID->"d4563c12-35fe-474e-a47d-d7e9883ff794"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[232080, 5963, 530, 15, 55, "Input",ExpressionUUID->"6af42c59-0577-40bf-bdf5-51f893408977"],
+Cell[232613, 5980, 441, 12, 49, "Output",ExpressionUUID->"0011d66c-7d08-447f-bb9b-347e447226c0"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[233103, 5998, 181, 3, 31, "Subsection",ExpressionUUID->"18c7e1ef-39f2-427d-bf4e-bf7315c91278"],
+Cell[233287, 6003, 713, 19, 53, "Text",ExpressionUUID->"2e05dad9-8655-4beb-86cf-c812c4589415"],
+Cell[CellGroupData[{
+Cell[234025, 6026, 243, 6, 51, "Input",ExpressionUUID->"b9003704-cf39-4d55-961a-d608fdecb3ce"],
+Cell[234271, 6034, 3875, 103, 76, "Output",ExpressionUUID->"ff2e9a60-3128-46a1-8b9f-1aa0c78100cd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[238183, 6142, 386, 9, 51, "Input",ExpressionUUID->"f0776f58-5b9a-4c78-b07f-2080c73d4403"],
+Cell[238572, 6153, 8653, 207, 98, "Output",ExpressionUUID->"1a024401-bfa8-43a7-8bb6-8bed2c90b4a6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[247262, 6365, 779, 22, 71, "Input",ExpressionUUID->"1ee45adb-b685-49a9-a3a6-355e65876a37"],
+Cell[248044, 6389, 3256, 103, 92, "Output",ExpressionUUID->"859f5c7a-56b1-4bb4-8b4d-a1e3ffa39660"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[251349, 6498, 92, 0, 31, "Subsection",ExpressionUUID->"bc200495-447f-4b10-8c22-28896baf1368"],
+Cell[251444, 6500, 930, 20, 107, "Text",ExpressionUUID->"cc06a4f9-55f1-41ba-926b-5028c33d1566"],
+Cell[252377, 6522, 696, 18, 71, "Input",ExpressionUUID->"b42cac58-542d-4e73-9d3c-8b78c0d3204a"],
+Cell[253076, 6542, 498, 13, 51, "Input",ExpressionUUID->"a5527853-b5f6-46f9-8d6e-659056e738f3"],
+Cell[253577, 6557, 1492, 35, 71, "Input",ExpressionUUID->"3b345c12-bcda-4c64-b59a-ad3c0dd3c48f"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[255106, 6597, 126, 0, 31, "Subsection",ExpressionUUID->"fddb6372-c390-4120-893c-473bf1138832"],
+Cell[255235, 6599, 470, 14, 30, "Text",ExpressionUUID->"2cd55e4a-aeb7-48bd-9125-c1babf237c14"],
+Cell[CellGroupData[{
+Cell[255730, 6617, 577, 15, 51, "Input",ExpressionUUID->"0912108c-d244-481e-a42f-2d18c7807e93"],
+Cell[256310, 6634, 6345, 153, 76, "Output",ExpressionUUID->"3acc964d-f1e0-43c2-9469-4c345ea28940"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[262692, 6792, 748, 19, 51, "Input",ExpressionUUID->"09ebf4cb-c4d5-4c9b-91f6-f276931fbfd3"],
+Cell[263443, 6813, 161, 3, 47, "Output",ExpressionUUID->"c2da47b6-9cad-4c7d-8215-eb0d231d9ffa"]
+}, Open  ]],
+Cell[263619, 6819, 287, 5, 30, "Text",ExpressionUUID->"2ef83cc0-aecf-4086-9e25-03b224935898"],
+Cell[263909, 6826, 244, 6, 30, "Text",ExpressionUUID->"a3787b20-e7c3-4618-b2cb-088a8b3f0c34"],
+Cell[CellGroupData[{
+Cell[264178, 6836, 639, 18, 51, "Input",ExpressionUUID->"a3dc533e-f89c-4a23-bb03-836aa9c70453"],
+Cell[264820, 6856, 156, 3, 47, "Output",ExpressionUUID->"8d9dc3f9-acac-49b2-88ad-e3c8b5440e12"]
+}, Open  ]]
 }, Closed]]
 }, Open  ]]
 }, Open  ]]
