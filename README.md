@@ -284,6 +284,9 @@ SAM-3.0 builds on earlier versions of the subensemble acceptance method:
   [Phys. Rev. C 105, 014903 (2022)](https://doi.org/10.1103/PhysRevC.105.014903),  
   [[arXiv:2106.13775 [hep-ph]](https://arxiv.org/abs/2106.13775)]
 
+An implementation of these earlier versions (SAM-1.0/SAM-2.0) is available at
+[github.com/vlvovch/SAM](https://github.com/vlvovch/SAM).
+
 ## Attribution
 
 Publications using this repository should cite the SAM-3.0 paper.  
