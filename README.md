@@ -67,11 +67,9 @@ The notebook derives and evaluates SAM-3.0 cumulant formulas symbolically. It su
 
 The notebook contains two independent leading-order implementations:
 
-1. **Colored partitions**
-   Uses the explicit colored set-partition form of the multivariate Faà di Bruno formula. This is the most transparent implementation and follows the analytic derivation closely.
+1. **Colored partitions** — uses the explicit colored set-partition form of the multivariate Faà di Bruno formula. This is the most transparent implementation and follows the analytic derivation closely.
 
-2. **Coefficient matching**
-   Constructs a truncated cumulant-generating function, substitutes a formal power series for the saddle fields (\lambda_a(\mathbf t)), and solves the saddle equations by matching powers of the observable sources. This provides an independent cross-check of the colored-partition recursion.
+2. **Coefficient matching** — constructs a truncated cumulant-generating function, substitutes a formal power series for the saddle fields $\lambda_a(\mathbf{t})$, and solves the saddle equations by matching powers of the observable sources. This provides an independent cross-check of the colored-partition recursion.
 
 The colored-partition implementation is the main symbolic implementation.
 
