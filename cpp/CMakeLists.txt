@@ -71,7 +71,7 @@ add_executable(test_sam3 test_sam3.cpp)
 target_link_libraries(test_sam3 PRIVATE sam3)
 
 # Emits a Mathematica data file for the C++ <-> notebook cross-check
-# (see ../crosscheck.sh and ../Mathematica/crosscheck_cpp.wl).
+# (see ../scripts/crosscheck.sh and ../Mathematica/crosscheck_cpp.wl).
 add_executable(bridge_sam3 bridge_sam3.cpp)
 target_link_libraries(bridge_sam3 PRIVATE sam3)
 

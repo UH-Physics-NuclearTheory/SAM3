@@ -228,21 +228,26 @@ The repository layout is
 ├── README.md
 ├── AUTHORS.md
 ├── LICENSE
+├── CITATION.cff
 ├── Mathematica/
-│   └── SAM-3.0.nb
-└── cpp/
-    ├── CMakeLists.txt
-    ├── README.md
-    ├── sam3.h
-    ├── example.cpp
-    ├── example_binomial.cpp
-    └── test_sam3.cpp
+│   ├── SAM-3.0.nb
+│   ├── test_sam3.wl          # cross-check material
+│   └── crosscheck_cpp.wl     # cross-check material
+├── cpp/
+│   ├── CMakeLists.txt
+│   ├── README.md
+│   ├── sam3.h
+│   ├── example.cpp
+│   ├── example_binomial.cpp
+│   ├── test_sam3.cpp
+│   └── bridge_sam3.cpp       # cross-check material
+└── scripts/
+    └── crosscheck.sh         # cross-check driver
 ```
 
-The repository also includes optional cross-check material (the C++ and
-Mathematica implementations are compared on identical random inputs):
-`cpp/bridge_sam3.cpp`, `Mathematica/test_sam3.wl`, `Mathematica/crosscheck_cpp.wl`,
-and the driver `scripts/crosscheck.sh`.
+The cross-check material compares the C++ and Mathematica implementations on
+identical random inputs; run it with `./scripts/crosscheck.sh` (requires
+`wolframscript`).
 
 ## Notes and limitations
 
