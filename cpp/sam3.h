@@ -184,13 +184,14 @@ public:
     // Tracks missing cumulants during computation
     mutable std::set<KappaKey> missingKeys_;
 
-    /// Prints all unique missing GCE cumulants that were treated as 0
+    /// Prints all unique missing GCE cumulants that were treated as 0.
+    /// Written to stderr so that results captured from stdout stay clean.
     void printMissingCumulants() const {
         if (missingKeys_.empty()) return;
 
-        std::cout << "\nMissing GCE cumulants (treated as 0):\n";
+        std::cerr << "\nMissing GCE cumulants (treated as 0):\n";
         for (const auto& key : missingKeys_) {
-            std::cout << "  kappa(" << MIToString(key.first) << "; "
+            std::cerr << "  kappa(" << MIToString(key.first) << "; "
                 << MIToString(key.second) << ")\n";
         }
     }
@@ -695,7 +696,8 @@ private:
 /// \param desiredOrder   highest total cumulant order Nmax
 /// \param gceCumulants   grand-canonical cumulants kappa^gce, keyed by
 ///                       (observable MI of length d, charge MI of length s);
-///                       missing entries are treated as zero
+///                       missing entries are treated as zero (and reported
+///                       on stderr after the computation)
 /// \return  canonical cumulants kappa^ce_n keyed by the observable MI n, for
 ///          every n with total order 1 .. Nmax
 inline CEMap ComputeSAM3CanonicalCumulants(int observableDim,
