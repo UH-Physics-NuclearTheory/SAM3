@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: SAM-3.0
+title: 'SAM-3.0: Mathematica and C++ implementation'
 message: 'If you use SAM-3.0, please cite the paper below.'
 type: software
 authors:
