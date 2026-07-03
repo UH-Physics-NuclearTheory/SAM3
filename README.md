@@ -292,6 +292,20 @@ An implementation of these earlier versions (SAM-1.0/SAM-2.0) is available at
 Publications using this repository should cite the SAM-3.0 paper.  
 Publications using results or formulas from earlier versions of the method should also cite the corresponding SAM-1.0 or SAM-2.0 papers listed above.
 
+BibTeX entry for the SAM-3.0 paper (from [INSPIRE](https://inspirehep.net/literature/3176505)):
+
+```bibtex
+@article{Poberezhnyuk:2026ere,
+    author = "Poberezhnyuk, Roman and Kuznietsov, Volodymyr A. and Pihan, Gr{\'e}goire and Vovchenko, Volodymyr",
+    title = "{Subensemble Acceptance Method 3.0: General Corrections to Cumulants from Exact Conservation Constraints}",
+    eprint = "2607.01783",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    month = "7",
+    year = "2026"
+}
+```
+
 ## Authors
 
 See [AUTHORS.md](AUTHORS.md).
