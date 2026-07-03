@@ -1,5 +1,8 @@
 # Subensemble Acceptance Method 3.0
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21176237.svg)](https://doi.org/10.5281/zenodo.21176237)
+
+
 ## Description
 
 This repository contains material related to the **Subensemble Acceptance Method 3.0 (SAM-3.0)**.
