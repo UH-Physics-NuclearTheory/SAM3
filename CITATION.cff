@@ -25,8 +25,8 @@ authors:
     orcid: 'https://orcid.org/0000-0002-2189-4766'
 identifiers:
   - type: doi
-    value: 10.XXXX/XXXXX   # TODO: paper DOI once published
-    description: The paper documenting the method
+    value: 10.48550/arXiv.2607.01783
+    description: arXiv preprint of the paper documenting the method
 repository-code: 'https://github.com/UH-Physics-NuclearTheory/SAM3'
 abstract: A package for correcting cumulants of observables for exact global conservation laws (subensemble acceptance method)
 keywords:
@@ -36,8 +36,8 @@ keywords:
   - heavy-ion-collisions
   - cumulants
 license: MIT
-version: 1.0.0          # TODO: tagged release used for the paper
-date-released: '2026-XX-XX'   # TODO
+version: 1.0.0
+date-released: '2026-07-03'
 preferred-citation:
   type: article
   title: "Subensemble Acceptance Method 3.0: General Corrections to Cumulants from Exact Conservation Constraints"
@@ -51,4 +51,6 @@ preferred-citation:
     - family-names: Vovchenko
       given-names: Volodymyr
   year: 2026
-  # journal / volume / doi / start / end  — TODO once published
+  doi: 10.48550/arXiv.2607.01783
+  url: 'https://arxiv.org/abs/2607.01783'
+  # journal / volume / pages / journal doi — update once published

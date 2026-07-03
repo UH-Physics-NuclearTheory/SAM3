@@ -12,7 +12,7 @@
  * --------------------------------------------------------------------------
  *   R. Poberezhniuk, V. A. Kuznietsov, G. Pihan, V. Vovchenko,
  *   "Subensemble Acceptance Method 3.0: General Corrections to Cumulants from
- *    Exact Conservation Constraints", arXiv:XXXX.XXXXX [hep-ph].
+ *    Exact Conservation Constraints", arXiv:2607.01783 [hep-ph].
  *
  * Earlier versions of the subensemble acceptance method:
  *   - SAM, single conserved charge:      arXiv:2003.13905 (Phys. Lett. B 811, 135868)

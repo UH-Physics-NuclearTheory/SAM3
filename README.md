@@ -14,7 +14,7 @@ The primary reference for this repository, which documents the method, is
 
 - R. Poberezhniuk, V. A. Kuznietsov, G. Pihan, V. Vovchenko,  
   *Subensemble Acceptance Method 3.0: General Corrections to Cumulants from Exact Conservation Constraints*,  
-  [arXiv:XXXX.XXXXX [hep-ph]](https://arxiv.org/abs/XXXX.XXXXX)
+  [arXiv:2607.01783 [hep-ph]](https://arxiv.org/abs/2607.01783)
 
 
 ## Method

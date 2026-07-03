@@ -31,7 +31,7 @@ paper:\nR. Poberezhniuk, V. A. Kuznietsov, G. Pihan, V. Vovchenko, ",
  StyleBox["Subensemble Acceptance Method 3.0: General Corrections to \
 Cumulants from Exact Conservation Constraints",
   FontSlant->Italic],
- ", arXiv:XXXX.XXXXX.\n\nTested with Wolfram Mathematica 13 and 14. Released \
+ ", arXiv:2607.01783.\n\nTested with Wolfram Mathematica 13 and 14. Released \
 under the MIT License. If you use this notebook, please cite the paper above.\
 \n\nCopyright (c) 2026 Roman Poberezhniuk, Volodymyr A. Kuznietsov, Gr\
 \[EAcute]goire Pihan, Volodymyr Vovchenko"
